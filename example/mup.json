@@ -1,0 +1,10 @@
+{
+  "server": {
+    "host": "162.243.96.210",
+    "username": "root",
+    "password": "qtvqcogvoxjd"
+  },
+
+  //install MongoDB in the server
+  "installMongo": true
+}

@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+var path = require('path');
+var cjson = require('cjson');
+
+var cwd = path.resolve('.');
+var config = cjson.load(path.resolve(cwd, 'mup.json'));
+//validate config
+
+var actionsRegistry = require('../lib/actions')(config);
+
+var action = process.argv[2];
+if(actionsRegistry[action]) {
+  actionsRegistry[action]();
+} else {
+  console.error('No Such Action Exists: ', action);
+}
