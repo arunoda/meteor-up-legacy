@@ -6,7 +6,7 @@ var cwd = path.resolve('.');
 var config = cjson.load(path.resolve(cwd, 'mup.json'));
 //validate config
 
-var actionsRegistry = require('../lib/actions')(config);
+var actionsRegistry = require('../lib/actions')(config, cwd);
 
 var action = process.argv[2];
 if(actionsRegistry[action]) {

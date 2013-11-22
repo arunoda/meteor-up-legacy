@@ -6,5 +6,13 @@
   },
 
   //install MongoDB in the server
-  "installMongo": true
+  "setupMongo": true,
+
+  //location of app (locally)
+  "app": "/edu/projects/meteor-samples/github-search",
+
+  //configure environmental variables here
+  "env": {
+    "ROOT_URL": "http://supersite.com"
+  }
 }
