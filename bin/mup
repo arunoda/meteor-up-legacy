@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var path = require('path');
 var cjson = require('cjson');
+var Config = require('../lib/config');
 var ActionsRegistry = require('../lib/actions');
 
 console.log('\nMeteor-UP : Production Quality Meteor Deployments');
@@ -12,9 +13,9 @@ if(action == 'init') {
   ActionsRegistry.init();
 } else {
   var cwd = path.resolve('.');
-  var config = cjson.load(path.resolve(cwd, 'mup.json'));
-  //validate config
+  var config = Config.read();
 
+  //validate config
   var actionsRegistry = new ActionsRegistry(config, cwd);
 
   if(actionsRegistry[action]) {
