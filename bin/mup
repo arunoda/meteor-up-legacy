@@ -1,16 +1,31 @@
 #!/usr/bin/env node
 var path = require('path');
 var cjson = require('cjson');
+var ActionsRegistry = require('../lib/actions');
 
-var cwd = path.resolve('.');
-var config = cjson.load(path.resolve(cwd, 'mup.json'));
-//validate config
-
-var actionsRegistry = require('../lib/actions')(config, cwd);
+console.log('\nMeteor-UP : Production Quality Meteor Deployments');
+console.log('=================================================\n');
 
 var action = process.argv[2];
-if(actionsRegistry[action]) {
-  actionsRegistry[action]();
+if(action == 'init') {
+  //special setup for init
+  ActionsRegistry.init();
 } else {
-  console.error('No Such Action Exists: ', action);
+  var cwd = path.resolve('.');
+  var config = cjson.load(path.resolve(cwd, 'mup.json'));
+  //validate config
+
+  var actionsRegistry = new ActionsRegistry(config, cwd);
+
+  if(actionsRegistry[action]) {
+    actionsRegistry[action]();
+  } else {
+    console.error('No Such Action Exists: ', action);
+    console.error('Valid Actions');
+    console.error('-------------');
+    console.error('init           - initialize a Meteor-Up project');
+    console.error('setup          - setup the server');
+    console.error('deploy         - deploy app to server');
+    console.error('logs [-f -n ]  - access logs');
+  }
 }

@@ -1,17 +1,18 @@
 {
+  //server authentication info
   "server": {
-    "host": "162.243.96.210",
+    "host": "hostname",
     "username": "root",
-    "password": "lrohxfqfqifq"
+    "password": "password"
   },
 
   //install MongoDB in the server
   "setupMongo": true,
 
-  //location of app (locally)
-  "app": "/edu/projects/meteor-samples/github-search",
+  //location of app (local directory)
+  "app": "/path/to/the/app",
 
-  //configure environmental variables here
+  //configure environmental
   "env": {
     "ROOT_URL": "http://supersite.com"
   }
