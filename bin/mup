@@ -3,9 +3,10 @@ var path = require('path');
 var cjson = require('cjson');
 var Config = require('../lib/config');
 var ActionsRegistry = require('../lib/actions');
+require('colors');
 
-console.log('\nMeteor-UP : Production Quality Meteor Deployments');
-console.log('=================================================\n');
+console.log('\nMeteor-UP : Production Quality Meteor Deployments'.bold.blue);
+console.log('--------------------------------------------------\n'.bold.blue);
 
 var action = process.argv[2];
 if(action == 'init') {
@@ -21,8 +22,9 @@ if(action == 'init') {
   if(actionsRegistry[action]) {
     actionsRegistry[action]();
   } else {
-    console.error('No Such Action Exists: ', action);
-    console.error('Valid Actions');
+    var errorMessage = 'No Such Action Exists: ' + action;
+    console.error(errorMessage.bold.red);
+    console.error('\nValid Actions');
     console.error('-------------');
     console.error('init           - initialize a Meteor-Up project');
     console.error('setup          - setup the server');
