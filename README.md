@@ -26,7 +26,7 @@ Meteor Up (mup for shorter) is a command line tool, which allows you to deploy a
 
     npm install -g mup
 
-If you looking for password based authentication, you need to [install sshpass](https://gist.github.com/arunoda/7790979) on your local development machine.
+If you are looking for password based authentication, you need to [install sshpass](https://gist.github.com/arunoda/7790979) on your local development machine.
 
 ### Creating a Meteor Up Project
 
@@ -61,12 +61,13 @@ Mup can tail logs from the server and it supports all the options of `tail`
 
 ## Server Setup
 
-Here is how Meteor Up, configure the server. This allow you to customize server for your needs.
+Here is how Meteor Up, configure the server for you. This information will help you to customize server for your needs.
 
-* your project is lives in `/opt/meteor/app`
+* your app is lives in `/opt/meteor/app`
 * mup uses upstart with a config file at `/etc/init/meteor.conf`
 * you can start and stop the app with upstart: `start meteor` and `stop meteor`
 * logs are located at: `/var/log/upstart/app.log`
 * MongoDB installed and bind to the local interface (cannot access from the outside)
+* `mongo` is the name of the database
 
 for more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-up/blob/master/lib/taskLists.js)
