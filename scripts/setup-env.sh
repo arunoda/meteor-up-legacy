@@ -6,6 +6,7 @@ sudo mkdir -p /opt/meteor/tmp
 
 sudo chown $USER /opt/meteor -R
 sudo chown $USER /etc/init
+sudo chown $USER /etc/
 
 sudo npm install -g forever userdown
 
