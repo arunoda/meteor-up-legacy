@@ -18,6 +18,7 @@ if(action == 'init') {
   var cwd = path.resolve('.');
   //read config and validate it
   var config = Config.read();
+  
   if(config.server.password) {
     //check for sshpass
     helpers.checkSshPassExists(function(exists) {
@@ -29,6 +30,8 @@ if(action == 'init') {
         process.exit(1);
       }
     });
+  } else {
+    runActions(config, cwd);
   }
 }
 
