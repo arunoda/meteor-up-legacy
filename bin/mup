@@ -19,7 +19,7 @@ if(action == 'init') {
   //read config and validate it
   var config = Config.read();
   
-  if(config.server.password) {
+  if(config._passwordExists) {
     //check for sshpass
     helpers.checkSshPassExists(function(exists) {
       if(exists) {
@@ -38,7 +38,6 @@ if(action == 'init') {
 
 function runActions(config, cwd) {
   var actionsRegistry = new ActionsRegistry(config, cwd);
-
   if(actionsRegistry[action]) {
     actionsRegistry[action]();
   } else {

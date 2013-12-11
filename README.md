@@ -59,6 +59,12 @@ This will bundle the meteor project and deploy it to the server.
 
 Mup can tail logs from the server and it supports all the options of `tail`
 
+### Reconfiguring
+
+After you've edit configurations or settings.json, you can reconfigure the app without deploying again. Use following command for that.
+
+    mup reconfig
+
 ## Server Setup
 
 Here is how Meteor Up, configure the server for you. This information will help you to customize server for your needs.
