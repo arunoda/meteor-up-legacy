@@ -61,7 +61,7 @@ Mup can tail logs from the server and it supports all the options of `tail`
 
 ### Reconfiguring
 
-After you've edit configurations or settings.json, you can reconfigure the app without deploying again. Use following command for that.
+After you've edit environmental variables or settings.json, you can reconfigure the app without deploying again. Use following command for that.
 
     mup reconfig
 
