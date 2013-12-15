@@ -53,6 +53,9 @@ This will setup the server for the mup deployments. It will take around 2-5 minu
 
 This will bundle the meteor project and deploy it to the server.
 
+#### Deploy Wait Time
+Meteor-Up checks for if the deployment is successful or not just after the deployment. By default, it will wait 10 seconds before the check. You can configure the wait time with `deployCheckWaitTime` option in the `mup.json`
+
 ### Access Logs
 
     mup logs -f
