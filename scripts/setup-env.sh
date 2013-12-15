@@ -8,7 +8,7 @@ sudo chown $USER /opt/meteor -R
 sudo chown $USER /etc/init
 sudo chown $USER /etc/
 
-sudo npm install -g forever userdown
+sudo npm install -g forever userdown wait-for-mongo
 
 ##creating a non-privileged user
 sudo useradd meteoruser || :

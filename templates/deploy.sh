@@ -41,5 +41,12 @@ revert_app (){
 }
 
 #wait and check
-sleep 5
+echo "wait for mongo(5 minutes) to initiaze"
+. /opt/meteor/config/env.sh
+wait-for-mongo $MONGO_URL 300000
+
+echo "waiting for <%= deployCheckWaitTime %> secs while app is booting up"
+sleep <%= deployCheckWaitTime %>
+
+echo "checking for app is booted or not?"
 curl localhost || revert_app
