@@ -83,4 +83,4 @@ for more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-
 
 ## Multiple Deployment Targets
 
-You can use an array to deploy to multiple servers at once. To deploy to *different* servers, use separate Meteor UP configurations (e.g. separate folders).
+You can use an array to deploy to multiple servers at once. To deploy to *different* servers (e.g. staging or production separately), use separate Meteor UP configurations (separate directories).
