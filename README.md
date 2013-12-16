@@ -80,3 +80,7 @@ Here is how Meteor Up, configure the server for you. This information will help 
 * `mongo` is the name of the database
 
 for more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-up/blob/master/lib/taskLists.js)
+
+## Multiple Deployment Targets
+
+You can use an array to deploy to multiple servers at once. To deploy to *different* servers, use separate Meteor UP configurations (e.g. separate folders).
