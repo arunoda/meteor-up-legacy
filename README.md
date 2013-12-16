@@ -56,6 +56,10 @@ This will bundle the meteor project and deploy it to the server.
 #### Deploy Wait Time
 Meteor-Up checks for if the deployment is successful or not just after the deployment. By default, it will wait 10 seconds before the check. You can configure the wait time with `deployCheckWaitTime` option in the `mup.json`
 
+#### Multiple Deployment Targets
+
+You can use an array to deploy to multiple servers at once. To deploy to *different* servers (e.g. staging or production separately), use separate Meteor UP configurations (separate directories).
+
 ### Access Logs
 
     mup logs -f
@@ -80,7 +84,3 @@ Here is how Meteor Up, configure the server for you. This information will help 
 * `mongo` is the name of the database
 
 for more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-up/blob/master/lib/taskLists.js)
-
-## Multiple Deployment Targets
-
-You can use an array to deploy to multiple servers at once. To deploy to *different* servers (e.g. staging or production separately), use separate Meteor UP configurations (separate directories).
