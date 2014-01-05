@@ -125,7 +125,7 @@ Meteor-Up checks for if the deployment is successful or not just after the deplo
 
 You can use an array to deploy to multiple servers at once. 
 
-To deploy to *different* environments (e.g. staging, production, etc.), use separate Meteor Up configurations in separate directories, with each directory only containing the `mup.json` and `settings.json` files, and the `mup.json` files' `app` option pointing back to your app's local directory. 
+To deploy to *different* environments (e.g. staging, production, etc.), use separate Meteor Up configurations in separate directories, with each directory containing separate `mup.json` and `settings.json` files, and the `mup.json` files' `app` field pointing back to your app's local directory. 
 
 ### Access Logs
 
