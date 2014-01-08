@@ -17,7 +17,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
     - [Deploy Wait Time](#deploy-wait-time)
     - [Multiple Deployment Targets](#multiple-deployment-targets)
 - [Access Logs](#access-logs)
-- [Reconfiguring](#reconfiguring)
+- [Reconfiguring & Restarting](#reconfiguring--restarting)
 
 ### Features
 
@@ -133,9 +133,10 @@ To deploy to *different* environments (e.g. staging, production, etc.), use sepa
 
 Mup can tail logs from the server and it supports all the options of `tail`
 
-### Reconfiguring
+### Reconfiguring & Restarting
 
 After you've edit environmental variables or settings.json, you can reconfigure the app without deploying again. Use following command for that.
 
     mup reconfig
 
+This will also restart the app, so you can use it for that purpose even if you didn't change the configuration file. 
