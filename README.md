@@ -131,8 +131,7 @@ To deploy to *different* environments (e.g. staging, production, etc.), use sepa
 
 Sometime, you might be using Meteor from a git checkout or using mrt. By default Meteor Up uses `meteor`. You can ask Meteor Up to use correct binary using `meteorBinary` option.
 
-js
-~~~
+~~~js
 {
   ...
   "meteorBinary": "~/bin/meteor/meteor"
