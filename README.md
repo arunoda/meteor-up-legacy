@@ -127,6 +127,19 @@ You can use an array to deploy to multiple servers at once.
 
 To deploy to *different* environments (e.g. staging, production, etc.), use separate Meteor Up configurations in separate directories, with each directory containing separate `mup.json` and `settings.json` files, and the `mup.json` files' `app` field pointing back to your app's local directory. 
 
+#### Custom Meteor Binary
+
+Sometime, you might be using Meteor from a git checkout or using mrt. By default Meteor Up uses `meteor`. You can ask Meteor Up to use correct binary using `meteorBinary` option.
+
+js
+~~~
+{
+  ...
+  "meteorBinary": "~/bin/meteor/meteor"
+  ...
+}
+~~~
+
 ### Access Logs
 
     mup logs -f
