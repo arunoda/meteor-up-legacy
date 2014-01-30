@@ -49,4 +49,4 @@ echo "waiting for <%= deployCheckWaitTime %> secs while app is booting up"
 sleep <%= deployCheckWaitTime %>
 
 echo "checking for app is booted or not?"
-curl localhost || revert_app
+curl localhost:$PORT || revert_app
