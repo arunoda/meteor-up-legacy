@@ -75,7 +75,8 @@ This will create two files in your Meteor Up project directory, which are:
   //install MongoDB in the server
   "setupMongo": false,
   //optionally skip nodejs setup in the server
-  //WARNING: Nodejs is required! Only skip if you already have nodejs installed on server.
+  //WARNING: Nodejs is required! Only skip if you already have nodejs 
+  // installed on server or want to use nvm to manage nodejs.
   "skipNodeSetup": false,
   //optionally skip phantomjs setup in the server
   "skipPhantomjsSetup": false,
