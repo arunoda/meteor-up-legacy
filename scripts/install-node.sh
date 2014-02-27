@@ -1,14 +1,21 @@
 #!/bin/bash
 
+#remove the lock
+set +e
+sudo rm /var/lib/dpkg/lock > /dev/null
+sudo rm /var/cache/apt/archives/lock > /dev/null
+sudo dpkg --configure -a
+set -e
+
 # required to update system
 sudo apt-get update
 
-# install nodejs - either nodeVersion or last known version supporting websockets with Meteor
+# install nodejs - either nodeVersion or which works with latest Meteor release
 
 <% if (nodeVersion) { %>
   NODE_VERSION=<%= nodeVersion %>
 <% } else {%>
-  NODE_VERSION=0.10.24
+  NODE_VERSION=0.10.25
 <% } %>
 
 ARCH=`uname -m`
