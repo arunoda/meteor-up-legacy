@@ -66,7 +66,8 @@ This will create two files in your Meteor Up project directory, which are:
     {
       "host": "123.456.789.012",
       "username": "root",
-      "password": "x7fj29dhs0"
+      "password": "x7fj29dhs0",
+      "sshOptions": { "Port" : 49154 },
       //or pem file (ssh based authentication)
       //"pem": "~/.ssh/id_rsa"
     }
