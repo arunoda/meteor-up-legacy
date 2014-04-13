@@ -116,7 +116,7 @@ This is how Meteor Up will configure the server for you. This information will h
 * you can start and stop the app with upstart: `start meteor` and `stop meteor`
 * logs are located at: `/var/log/upstart/app.log`
 * MongoDB installed and bind to the local interface (cannot access from the outside)
-* `mongo` is the name of the database
+* `meteor` is the name of the database
 
 For more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-up/blob/master/lib/taskLists.js).
 
