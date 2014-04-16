@@ -41,7 +41,7 @@ revert_app (){
 }
 
 #wait and check
-echo "wait for mongo(5 minutes) to initiaze"
+echo "wait for mongo(5 minutes) to initialize"
 . /opt/meteor/config/env.sh
 wait-for-mongo $MONGO_URL 300000
 
