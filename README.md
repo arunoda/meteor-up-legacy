@@ -27,6 +27,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
 * Support for [`settings.json`](http://docs.meteor.com/#meteor_settings)
 * Password or Private Key(pem) based server authentication
 * Access, logs from the terminal (supports log tailing)
+* Support for multiple meteor deployments
 
 ### Server Configuration
 
@@ -84,6 +85,9 @@ This will create two files in your Meteor Up project directory, which are:
   //install PhantomJS in the server
   "setupPhantom": true,
 
+  //application name
+  "appName": "meteor",
+
   //location of app (local directory)
   "app": "/Users/arunoda/Meteor/my-app",
 
@@ -109,14 +113,14 @@ This will setup the server for the mup deployments. It will take around 2-5 minu
 
 #### Server Setup Details
 
-This is how Meteor Up will configure the server for you. This information will help you to customize server for your needs.
+This is how Meteor Up will configure the server for you based on the given appName or using "meteor" as default appName. This information will help you to customize server for your needs.
 
-* your app is lives in `/opt/meteor/app`
-* mup uses upstart with a config file at `/etc/init/meteor.conf`
-* you can start and stop the app with upstart: `start meteor` and `stop meteor`
+* your app is lives in `/opt/<appName>/app`
+* mup uses upstart with a config file at `/etc/init/<appName>.conf`
+* you can start and stop the app with upstart: `start <appName>` and `stop <appName>`
 * logs are located at: `/var/log/upstart/app.log`
 * MongoDB installed and bind to the local interface (cannot access from the outside)
-* `meteor` is the name of the database
+* `<appName>` is the name of the database
 
 For more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-up/blob/master/lib/taskLists.js).
 
