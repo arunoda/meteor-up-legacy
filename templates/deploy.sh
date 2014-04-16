@@ -32,21 +32,21 @@ revert_app (){
     sudo stop meteor || :
     sudo start meteor || :
 
-    echo "reverted back to the previous version due to the latest version didn't pick up!" 1>&2
+    echo "Latest deployment failed! Reverted back to the previous version." 1>&2
     exit 1
   else
-    echo "app didn't pick up! - please check app logs" 1>&2
+    echo "App did not pick up! Please check app logs." 1>&2
     exit 1
   fi
 }
 
 #wait and check
-echo "wait for mongo(5 minutes) to initialize"
+echo "Waiting for MongoDB to initialize. (5 minutes)"
 . /opt/meteor/config/env.sh
 wait-for-mongo $MONGO_URL 300000
 
-echo "waiting for <%= deployCheckWaitTime %> secs while app is booting up"
+echo "Waiting for <%= deployCheckWaitTime %> seconds while app is booting up"
 sleep <%= deployCheckWaitTime %>
 
-echo "checking for app is booted or not?"
+echo "Checking is app booted or not?"
 curl localhost:$PORT || revert_app
