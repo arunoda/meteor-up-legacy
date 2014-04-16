@@ -35,7 +35,7 @@ revert_app (){
     echo "Latest deployment failed! Reverted back to the previous version." 1>&2
     exit 1
   else
-    echo "Ppp did not pick up! Please check app logs." 1>&2
+    echo "App did not pick up! Please check app logs." 1>&2
     exit 1
   fi
 }
