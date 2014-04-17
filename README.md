@@ -18,6 +18,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
     - [Multiple Deployment Targets](#multiple-deployment-targets)
 - [Access Logs](#access-logs)
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
+- [Muliple Deployments](#multiple-deployments)
 
 ### Features
 
@@ -165,3 +166,15 @@ After you've edit environmental variables or settings.json, you can reconfigure 
     mup reconfig
 
 This will also restart the app, so you can use it for that purpose even if you didn't change the configuration file. 
+
+### Multiple Deployments
+
+Meteor Up supports multiple deployments into a single server. Meteor up only does the deployment; if you need to configure subdomains, you need to manually setup a reverse proxy yourself.
+
+Let's assume, we need to deploy a production and the staging versions of the app into the same server. Production App runs on the PORT 80 and staging app run on PORT 8000.
+
+We need to have two seperate Meteor Up Projects. For that create two directories and initialize Meteor UP and add neccessory configurations.
+
+In the staging configurations add a field called `appName` with the value `staging` into the `mup.json`. You can add any name you prefer instead of `staging`. Since we are running our staging app in port 8000, add an environment variable called `PORT` with the value 3000.
+
+Now setup both projects and deploy as you need.
