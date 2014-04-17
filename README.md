@@ -18,6 +18,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
     - [Multiple Deployment Targets](#multiple-deployment-targets)
 - [Access Logs](#access-logs)
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
+- [Muliple Deployments](#multiple-deployments)
 
 ### Features
 
@@ -27,6 +28,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
 * Support for [`settings.json`](http://docs.meteor.com/#meteor_settings)
 * Password or Private Key(pem) based server authentication
 * Access, logs from the terminal (supports log tailing)
+* Support for multiple meteor deployments
 
 ### Server Configuration
 
@@ -84,6 +86,9 @@ This will create two files in your Meteor Up project directory, which are:
   //install PhantomJS in the server
   "setupPhantom": true,
 
+  //application name
+  "appName": "meteor",
+
   //location of app (local directory)
   "app": "/Users/arunoda/Meteor/my-app",
 
@@ -109,14 +114,14 @@ This will setup the server for the mup deployments. It will take around 2-5 minu
 
 #### Server Setup Details
 
-This is how Meteor Up will configure the server for you. This information will help you to customize server for your needs.
+This is how Meteor Up will configure the server for you based on the given appName or using "meteor" as default appName. This information will help you to customize server for your needs.
 
-* your app is lives in `/opt/meteor/app`
-* mup uses upstart with a config file at `/etc/init/meteor.conf`
-* you can start and stop the app with upstart: `start meteor` and `stop meteor`
+* your app is lives in `/opt/<appName>/app`
+* mup uses upstart with a config file at `/etc/init/<appName>.conf`
+* you can start and stop the app with upstart: `start <appName>` and `stop <appName>`
 * logs are located at: `/var/log/upstart/app.log`
 * MongoDB installed and bind to the local interface (cannot access from the outside)
-* `meteor` is the name of the database
+* `<appName>` is the name of the database
 
 For more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-up/blob/master/lib/taskLists.js).
 
@@ -161,3 +166,15 @@ After you've edit environmental variables or settings.json, you can reconfigure 
     mup reconfig
 
 This will also restart the app, so you can use it for that purpose even if you didn't change the configuration file. 
+
+### Multiple Deployments
+
+Meteor Up supports multiple deployments into a single server. Meteor up only does the deployment; if you need to configure subdomains, you need to manually setup a reverse proxy yourself.
+
+Let's assume, we need to deploy a production and the staging versions of the app into the same server. Production App runs on the PORT 80 and staging app run on PORT 8000.
+
+We need to have two seperate Meteor Up Projects. For that create two directories and initialize Meteor UP and add neccessory configurations.
+
+In the staging configurations add a field called `appName` with the value `staging` into the `mup.json`. You can add any name you prefer instead of `staging`. Since we are running our staging app in port 8000, add an environment variable called `PORT` with the value 3000.
+
+Now setup both projects and deploy as you need.

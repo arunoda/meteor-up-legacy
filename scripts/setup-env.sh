@@ -1,10 +1,10 @@
 #!/bin/bash
 
-sudo mkdir -p /opt/meteor/
-sudo mkdir -p /opt/meteor/config
-sudo mkdir -p /opt/meteor/tmp
+sudo mkdir -p /opt/<%= appName %>/
+sudo mkdir -p /opt/<%= appName %>/config
+sudo mkdir -p /opt/<%= appName %>/tmp
 
-sudo chown $USER /opt/meteor -R
+sudo chown $USER /opt/<%= appName %> -R
 sudo chown $USER /etc/init
 sudo chown $USER /etc/
 

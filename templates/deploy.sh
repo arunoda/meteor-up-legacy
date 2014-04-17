@@ -1,13 +1,13 @@
 #!/bin/bash
 set -e
 
-cd /opt/meteor/tmp
+cd /opt/<%= appName %>/tmp
 sudo rm -rf bundle
 sudo tar xvzf bundle.tar.gz > /dev/null
 cd bundle/programs/server
 sudo npm install fibers
 
-cd /opt/meteor/
+cd /opt/<%= appName %>/
 
 # remove old app, if exists
 if [ -d old_app ]; then
@@ -22,15 +22,15 @@ fi
 sudo mv tmp/bundle app
 
 # restart app
-sudo stop meteor || :
-sudo start meteor || :
+sudo stop <%= appName %> || :
+sudo start <%= appName %> || :
 
 revert_app (){
   if [[ -d old_app ]]; then
     sudo rm -rf app
     sudo mv old_app app
-    sudo stop meteor || :
-    sudo start meteor || :
+    sudo stop <%= appName %> || :
+    sudo start <%= appName %> || :
 
     echo "reverted back to the previous version due to the latest version didn't pick up!" 1>&2
     exit 1
@@ -42,7 +42,7 @@ revert_app (){
 
 #wait and check
 echo "wait for mongo(5 minutes) to initialize"
-. /opt/meteor/config/env.sh
+. /opt/<%= appName %>/config/env.sh
 wait-for-mongo $MONGO_URL 300000
 
 echo "waiting for <%= deployCheckWaitTime %> secs while app is booting up"
