@@ -19,6 +19,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
 - [Access Logs](#access-logs)
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
 - [Muliple Deployments](#multiple-deployments)
+- [Binary NPM Modules](#binary-npm-modules)
 
 ### Features
 
@@ -179,3 +180,19 @@ We need to have two seperate Meteor Up Projects. For that create two directories
 In the staging configurations add a field called `appName` with the value `staging` into the `mup.json`. You can add any name you prefer instead of `staging`. Since we are running our staging app in port 8000, add an environment variable called `PORT` with the value 3000.
 
 Now setup both projects and deploy as you need.
+
+### Binary NPM Modules
+
+If you are using binary npm modules either with meteor-npm or with some other package you can't deploy and run your app by default. That's because, binaries in the bundle are not compatible with your deployment environment.
+
+So, you need to specify binary modules and which packages are then as shown below in your `mup.json`.
+
+{
+  ...
+
+  "binaryNpmModules": {
+    "meteor-package-name": ["npm-module1", "npm-module2"]
+  } 
+
+  ...
+}
