@@ -10,7 +10,7 @@ sudo tar xvzf bundle.tar.gz > /dev/null
 
 # rebuilding fibers
 cd $BUNDLE_DIR/programs/server
-sudo npm rebuild fibers
+sudo npm install fibers
 
 # rebuilding other modules inside packages
 <% for(var packageName in binaryNpmModules) { %>
