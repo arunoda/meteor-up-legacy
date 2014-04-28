@@ -1,11 +1,22 @@
 #!/bin/bash
 set -e
 
-cd /opt/<%= appName %>/tmp
+TMP_DIR=/opt/<%= appName %>/tmp
+BUNDLE_DIR=$TMP_DIR/bundle
+
+cd $TMP_DIR
 sudo rm -rf bundle
 sudo tar xvzf bundle.tar.gz > /dev/null
-cd bundle/programs/server
-sudo npm install fibers
+
+# rebuilding fibers
+cd $BUNDLE_DIR/programs/server
+sudo npm rebuild fibers
+
+# rebuilding other modules inside packages
+<% for(var packageName in binaryNpmModules) { %>
+  cd $BUNDLE_DIR/programs/server/npm/<%= packageName %>/main
+  sudo npm rebuild <%= binaryNpmModules[packageName].join(' ') %>
+<% } %>
 
 cd /opt/<%= appName %>/
 
