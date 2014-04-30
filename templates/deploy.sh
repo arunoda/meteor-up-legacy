@@ -61,3 +61,7 @@ sleep <%= deployCheckWaitTime %>
 
 echo "Checking is app booted or not?"
 curl localhost:$PORT || revert_app
+
+# chown to support dumping heapdump and etc
+sudo chown -R meteoruser app 
+
