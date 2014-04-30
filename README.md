@@ -187,6 +187,7 @@ If you are using binary npm modules either with meteor-npm or with some other pa
 
 So, you need to specify binary modules and which packages are then as shown below in your `mup.json`.
 
+~~~json
 {
   ...
 
@@ -196,3 +197,4 @@ So, you need to specify binary modules and which packages are then as shown belo
 
   ...
 }
+~~~
