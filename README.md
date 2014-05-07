@@ -1,4 +1,4 @@
-# Meteor UP
+# Meteor Up
 
 #### Production Quality Meteor Deployments
 
@@ -18,7 +18,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
     - [Multiple Deployment Targets](#multiple-deployment-targets)
 - [Access Logs](#access-logs)
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
-- [Muliple Deployments](#multiple-deployments)
+- [Multiple Deployments](#multiple-deployments)
 - [Binary NPM Modules](#binary-npm-modules)
 
 ### Features
@@ -64,37 +64,36 @@ This will create two files in your Meteor Up project directory, which are:
 
 ```js
 {
-  //server authentication info
+  // Server authentication info
   "servers": [
     {
-      "host": "123.456.789.012",
+      "host": "hostname",
       "username": "root",
-      "password": "x7fj29dhs0",
-      "sshOptions": { "Port" : 49154 },
-      //or pem file (ssh based authentication)
+      "password": "password"
+      // or pem file (ssh based authentication)
       //"pem": "~/.ssh/id_rsa"
     }
   ],
 
-  //install MongoDB in the server, does not destroy local mongo db on future setup
+  // Install MongoDB in the server, does not destroy local MongoDB on future setup
   "setupMongo": true,
-  
-  //WARNING: Nodejs is required! Only skip if you already have nodejs installed on server.
+
+  // WARNING: Node.js is required! Only skip if you already have Node.js installed on server.
   "setupNode": true,
-  
-  //WARNING: If nodeVersion omitted will setup 0.10.25 by default. Do not use v, only version number.
+
+  // WARNING: If nodeVersion omitted will setup 0.10.25 by default. Do not use v, only version number.
   "nodeVersion": "0.10.25",
-  
-  //install PhantomJS in the server
+
+  // Install PhantomJS in the server
   "setupPhantom": true,
 
-  //application name
+  // Application name (No spaces)
   "appName": "meteor",
 
-  //location of app (local directory)
+  // Location of app (local directory)
   "app": "/Users/arunoda/Meteor/my-app",
 
-  //configure environmental
+  // Configure environment
   "env": {
     "PORT": 80,
     "ROOT_URL": "http://myapp.com",
@@ -102,8 +101,8 @@ This will create two files in your Meteor Up project directory, which are:
     "MAIL_URL": "smtp://postmaster%40myapp.mailgun.org:adj87sjhd7s@smtp.mailgun.org:587/"
   },
 
-  //meteor-up checks if the app comes online just after the deployment
-  //before mup checks that, it will wait for no. of seconds configured below
+  // Meteor Up checks if the app comes online just after the deployment
+  // before mup checks that, it will wait for no. of seconds configured below
   "deployCheckWaitTime": 15
 }
 ```
@@ -135,7 +134,7 @@ This will bundle the meteor project and deploy it to the server.
 
 #### Deploy Wait Time
 
-Meteor-Up checks for if the deployment is successful or not just after the deployment. By default, it will wait 10 seconds before the check. You can configure the wait time with `deployCheckWaitTime` option in the `mup.json`
+Meteor Up checks for if the deployment is successful or not just after the deployment. By default, it will wait 10 seconds before the check. You can configure the wait time with `deployCheckWaitTime` option in the `mup.json`
 
 #### Multiple Deployment Targets
 
@@ -171,11 +170,11 @@ This will also restart the app, so you can use it for that purpose even if you d
 
 ### Multiple Deployments
 
-Meteor Up supports multiple deployments into a single server. Meteor up only does the deployment; if you need to configure subdomains, you need to manually setup a reverse proxy yourself.
+Meteor Up supports multiple deployments into a single server. Meteor Up only does the deployment; if you need to configure subdomains, you need to manually setup a reverse proxy yourself.
 
 Let's assume, we need to deploy a production and the staging versions of the app into the same server. Production App runs on the PORT 80 and staging app run on PORT 8000.
 
-We need to have two seperate Meteor Up Projects. For that create two directories and initialize Meteor UP and add neccessory configurations.
+We need to have two separate Meteor Up Projects. For that create two directories and initialize Meteor Up and add necessary configurations.
 
 In the staging configurations add a field called `appName` with the value `staging` into the `mup.json`. You can add any name you prefer instead of `staging`. Since we are running our staging app in port 8000, add an environment variable called `PORT` with the value 3000.
 
@@ -187,6 +186,7 @@ If you are using binary npm modules either with meteor-npm or with some other pa
 
 So, you need to specify binary modules and which packages are then as shown below in your `mup.json`.
 
+~~~json
 {
   ...
 
@@ -196,3 +196,4 @@ So, you need to specify binary modules and which packages are then as shown belo
 
   ...
 }
+~~~

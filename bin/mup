@@ -7,8 +7,8 @@ var ActionsRegistry = require('../lib/actions');
 var helpers = require('../lib/helpers');
 require('colors');
 
-console.log('\nMeteor-UP : Production Quality Meteor Deployments'.bold.blue);
-console.log('--------------------------------------------------\n'.bold.blue);
+console.log('\nMeteor Up: Production Quality Meteor Deployments'.bold.blue);
+console.log('------------------------------------------------\n'.bold.blue);
 
 var action = process.argv[2];
 if(action == 'init') {
@@ -18,7 +18,7 @@ if(action == 'init') {
   var cwd = path.resolve('.');
   //read config and validate it
   var config = Config.read();
-  
+
   if(config._passwordExists) {
     //check for sshpass
     helpers.checkSshPassExists(function(exists) {
@@ -41,8 +41,10 @@ function runActions(config, cwd) {
   if(actionsRegistry[action]) {
     actionsRegistry[action]();
   } else {
-    var errorMessage = 'No Such Action Exists: ' + action;
-    console.error(errorMessage.bold.red);
+    if(typeof action !== "undefined") {
+      var errorMessage = 'No Such Action Exists: ' + action;
+      console.error(errorMessage.bold.red);
+    }
     helpers.printHelp();
   }
 }

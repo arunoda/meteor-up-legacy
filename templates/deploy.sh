@@ -2,25 +2,25 @@
 set -e
 
 TMP_DIR=/opt/<%= appName %>/tmp
-BUNDLE_DIR=$TMP_DIR/bundle
+BUNDLE_DIR=${TMP_DIR}/bundle
 
-cd $TMP_DIR
+cd ${TMP_DIR}
 sudo rm -rf bundle
 sudo tar xvzf bundle.tar.gz > /dev/null
 
 # rebuilding fibers
-cd $BUNDLE_DIR/programs/server
+cd ${BUNDLE_DIR}/programs/server
 sudo npm install fibers
 
 # rebuilding other modules inside packages
 <% for(var packageName in binaryNpmModules) { %>
-  cd $BUNDLE_DIR/programs/server/npm/<%= packageName %>/main
+  cd ${BUNDLE_DIR}/programs/server/npm/<%= packageName %>/main
   sudo npm rebuild <%= binaryNpmModules[packageName].join(' ') %>
 <% } %>
 
 cd /opt/<%= appName %>/
 
-# remove old app, if exists
+# remove old app, if it exists
 if [ -d old_app ]; then
   sudo rm -rf old_app
 fi
@@ -54,13 +54,13 @@ revert_app (){
 #wait and check
 echo "Waiting for MongoDB to initialize. (5 minutes)"
 . /opt/<%= appName %>/config/env.sh
-wait-for-mongo $MONGO_URL 300000
+wait-for-mongo ${MONGO_URL} 300000
 
 echo "Waiting for <%= deployCheckWaitTime %> seconds while app is booting up"
 sleep <%= deployCheckWaitTime %>
 
 echo "Checking is app booted or not?"
-curl localhost:$PORT || revert_app
+curl localhost:${PORT} || revert_app
 
 # chown to support dumping heapdump and etc
 sudo chown -R meteoruser app 
