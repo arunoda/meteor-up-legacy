@@ -4,7 +4,7 @@
   "description": "Production Quality Meteor Deployments",
   "dependencies": {
     "nodemiral": "0.3.x",
-    "cjson": "0.2.1",
+    "cjson": "0.3.x",
     "uuid": "1.4.x",
     "colors": "0.6.x"
   },

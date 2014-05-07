@@ -88,7 +88,7 @@ This will create two files in your Meteor Up project directory, which are:
   "setupPhantom": true,
 
   // Application name (No spaces)
-  "appName": "meteor-app",
+  "appName": "meteor",
 
   // Location of app (local directory)
   "app": "/Users/arunoda/Meteor/my-app",

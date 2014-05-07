@@ -23,7 +23,7 @@
   "setupPhantom": true,
 
   // Application name (No spaces)
-  "appName": "meteor-app",
+  "appName": "meteor",
 
   // Location of app (local directory)
   "app": "/path/to/the/app",
