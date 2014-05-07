@@ -7,44 +7,44 @@ var ActionsRegistry = require('../lib/actions');
 var helpers = require('../lib/helpers');
 require('colors');
 
-console.log('\nMeteor-UP: Production Quality Meteor Deployments'.bold.blue);
+console.log('\nMeteor Up: Production Quality Meteor Deployments'.bold.blue);
 console.log('------------------------------------------------\n'.bold.blue);
 
 var action = process.argv[2];
 if (action == 'init') {
-    //special setup for init
-    ActionsRegistry.init();
+  //special setup for init
+  ActionsRegistry.init();
 } else {
-    var cwd = path.resolve('.');
-    //read config and validate it
-    var config = Config.read();
+  var cwd = path.resolve('.');
+  //read config and validate it
+  var config = Config.read();
 
-    if (config._passwordExists) {
-        //check for sshpass
-        helpers.checkSshPassExists(function (exists) {
-            if (exists) {
-                runActions(config, cwd);
-            } else {
-                var errorMessage = "sshpass required for password based authentication: refer http://git.io/_vHbvQ";
-                console.error(errorMessage.bold.red);
-                process.exit(1);
-            }
-        });
-    } else {
+  if (config._passwordExists) {
+    //check for sshpass
+    helpers.checkSshPassExists(function (exists) {
+      if (exists) {
         runActions(config, cwd);
-    }
+      } else {
+        var errorMessage = "sshpass required for password based authentication: refer http://git.io/_vHbvQ";
+        console.error(errorMessage.bold.red);
+        process.exit(1);
+      }
+    });
+  } else {
+    runActions(config, cwd);
+  }
 }
 
 
 function runActions(config, cwd) {
-    var actionsRegistry = new ActionsRegistry(config, cwd);
-    if (actionsRegistry[action]) {
-        actionsRegistry[action]();
-    } else {
-        if (typeof action !== "undefined") {
-            var errorMessage = 'No Such Action Exists: ' + action;
-            console.error(errorMessage.bold.red);
-        }
-        helpers.printHelp();
+  var actionsRegistry = new ActionsRegistry(config, cwd);
+  if (actionsRegistry[action]) {
+    actionsRegistry[action]();
+  } else {
+    if (typeof action !== "undefined") {
+      var errorMessage = 'No Such Action Exists: ' + action;
+      console.error(errorMessage.bold.red);
     }
+    helpers.printHelp();
+  }
 }

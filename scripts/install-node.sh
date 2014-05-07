@@ -10,7 +10,7 @@ set -e
 # Required to update system
 sudo apt-get update
 
-# Install NodeJS - either nodeVersion or which works with latest Meteor release
+# Install Node.js - either nodeVersion or which works with latest Meteor release
 <% if (nodeVersion) { %>
   NODE_VERSION=<%= nodeVersion %>
 <% } else {%>
