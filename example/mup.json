@@ -22,8 +22,8 @@
   // Install PhantomJS in the server
   "setupPhantom": true,
 
-  // Application name
-  "appName": "meteor",
+  // Application name (No spaces)
+  "appName": "meteor-app",
 
   // Location of app (local directory)
   "app": "/path/to/the/app",

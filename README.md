@@ -64,32 +64,31 @@ This will create two files in your Meteor Up project directory, which are:
 
 ```js
 {
-  //server authentication info
+  // Server authentication info
   "servers": [
     {
-      "host": "123.456.789.012",
+      "host": "hostname",
       "username": "root",
-      "password": "x7fj29dhs0",
-      "sshOptions": { "Port" : 49154 },
-      //or pem file (ssh based authentication)
+      "password": "password"
+      // or pem file (ssh based authentication)
       //"pem": "~/.ssh/id_rsa"
     }
   ],
 
-  //install MongoDB in the server, does not destroy local MongoDB on future setup
+  // Install MongoDB in the server, does not destroy local MongoDB on future setup
   "setupMongo": true,
-  
-  //WARNING: Node.js is required! Only skip if you already have Node.js installed on server.
+
+  // WARNING: Node.js is required! Only skip if you already have Node.js installed on server.
   "setupNode": true,
-  
-  //WARNING: If nodeVersion omitted will setup 0.10.25 by default. Do not use v, only version number.
+
+  // WARNING: If nodeVersion omitted will setup 0.10.25 by default. Do not use v, only version number.
   "nodeVersion": "0.10.25",
-  
-  //install PhantomJS in the server
+
+  // Install PhantomJS in the server
   "setupPhantom": true,
 
-  //application name
-  "appName": "meteor",
+  // Application name (No spaces)
+  "appName": "meteor-app",
 
   // Location of app (local directory)
   "app": "/Users/arunoda/Meteor/my-app",
