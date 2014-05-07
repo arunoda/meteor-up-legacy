@@ -11,7 +11,7 @@ console.log('\n Meteor Up: Production Quality Meteor Deployments'.bold.blue);
 console.log(' ------------------------------------------------\n'.bold.blue);
 
 var action = process.argv[2];
-if (action == 'init') {
+if(action == 'init') {
   //special setup for init
   ActionsRegistry.init();
 } else {
@@ -19,10 +19,10 @@ if (action == 'init') {
   //read config and validate it
   var config = Config.read();
 
-  if (config._passwordExists) {
+  if(config._passwordExists) {
     //check for sshpass
-    helpers.checkSshPassExists(function (exists) {
-      if (exists) {
+    helpers.checkSshPassExists(function(exists) {
+      if(exists) {
         runActions(config, cwd);
       } else {
         var errorMessage = "sshpass required for password based authentication: refer http://git.io/_vHbvQ";
@@ -38,10 +38,10 @@ if (action == 'init') {
 
 function runActions(config, cwd) {
   var actionsRegistry = new ActionsRegistry(config, cwd);
-  if (actionsRegistry[action]) {
+  if(actionsRegistry[action]) {
     actionsRegistry[action]();
   } else {
-    if (typeof action !== "undefined") {
+    if(typeof action !== "undefined") {
       var errorMessage = 'No Such Action Exists: ' + action;
       console.error(errorMessage.bold.red);
     }
