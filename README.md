@@ -18,7 +18,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
     - [Multiple Deployment Targets](#multiple-deployment-targets)
 - [Access Logs](#access-logs)
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
-- [Muliple Deployments](#multiple-deployments)
+- [Multiple Deployments](#multiple-deployments)
 - [Binary NPM Modules](#binary-npm-modules)
 
 ### Features
@@ -76,10 +76,10 @@ This will create two files in your Meteor Up project directory, which are:
     }
   ],
 
-  //install MongoDB in the server, does not destroy local mongo db on future setup
+  //install MongoDB in the server, does not destroy local MongoDB on future setup
   "setupMongo": true,
   
-  //WARNING: Nodejs is required! Only skip if you already have nodejs installed on server.
+  //WARNING: NodeJS is required! Only skip if you already have NodeJS installed on server.
   "setupNode": true,
   
   //WARNING: If nodeVersion omitted will setup 0.10.25 by default. Do not use v, only version number.
@@ -175,7 +175,7 @@ Meteor Up supports multiple deployments into a single server. Meteor up only doe
 
 Let's assume, we need to deploy a production and the staging versions of the app into the same server. Production App runs on the PORT 80 and staging app run on PORT 8000.
 
-We need to have two seperate Meteor Up Projects. For that create two directories and initialize Meteor UP and add neccessory configurations.
+We need to have two separate Meteor Up Projects. For that create two directories and initialize Meteor UP and add necessary configurations.
 
 In the staging configurations add a field called `appName` with the value `staging` into the `mup.json`. You can add any name you prefer instead of `staging`. Since we are running our staging app in port 8000, add an environment variable called `PORT` with the value 3000.
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#remove the lock
+# Remove the lock
 set +e
 sudo rm /var/lib/dpkg/lock > /dev/null
 sudo rm /var/cache/apt/archives/lock > /dev/null
@@ -12,6 +12,6 @@ echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | 
 sudo apt-get update -y
 sudo apt-get install mongodb-10gen
 
-#restart mongodb
+# Restart mongodb
 sudo stop mongodb || :
 sudo start mongodb

@@ -1,20 +1,20 @@
 {
-  "name": "mup",
-  "version": "0.4.3",
-  "description": "Production Quality Meteor Deplouments",
-  "dependencies": {
-    "nodemiral": "0.3.x",
-    "cjson": "0.2.1",
-    "uuid": "1.4.x",
-    "colors": "0.6.x"
-  },
-  "bin": {
-    "mup": "./bin/mup"
-  },
-  "author": "Arunoda Susiripala <arunoda.susiripala@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/arunoda/meteor-up.git"
-  },
-  "license": "MIT"
+    "name": "mup",
+    "version": "0.4.3",
+    "description": "Production Quality Meteor Deployments",
+    "dependencies": {
+        "nodemiral": "0.3.x",
+        "cjson": "0.2.1",
+        "uuid": "1.4.x",
+        "colors": "0.6.x"
+    },
+    "bin": {
+        "mup": "./bin/mup"
+    },
+    "author": "Arunoda Susiripala <arunoda.susiripala@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/arunoda/meteor-up.git"
+    },
+    "license": "MIT"
 }
