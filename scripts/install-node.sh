@@ -14,7 +14,7 @@ sudo apt-get update
 <% if (nodeVersion) { %>
   NODE_VERSION=<%= nodeVersion %>
 <% } else {%>
-  NODE_VERSION=0.10.25
+  NODE_VERSION=0.10.28
 <% } %>
 
 ARCH=`uname -m`
