@@ -113,6 +113,28 @@ This will create two files in your Meteor Up project directory, which are:
 
 This will setup the server for the mup deployments. It will take around 2-5 minutes depending on the server's performance and network availability.
 
+#### Ssh based authentication
+
+The setup process will require NOPASSWD access to sudo. (Since Meteor needs port 80, sudo access is required.)
+
+You can add your user to the sudo group:
+
+    sudo adduser *username*  sudo
+    
+And you also need to add NOPASSWD to the sudoers file:
+
+    sudo visudo
+ 
+    # replace this line
+    %sudo  ALL=(ALL) ALL
+
+    # by this line
+    %sudo ALL=(ALL) NOPASSWD:ALL  
+
+When this process is not working you might encounter the following error:
+
+    'sudo: no tty present and no askpass program specified'
+
 #### Server Setup Details
 
 This is how Meteor Up will configure the server for you based on the given appName or using "meteor" as default appName. This information will help you to customize server for your needs.
