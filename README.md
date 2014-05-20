@@ -18,6 +18,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
     - [Multiple Deployment Targets](#multiple-deployment-targets)
 - [Access Logs](#access-logs)
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
+- [Accessing the Database](#accessing-the-database)
 - [Multiple Deployments](#multiple-deployments)
 - [Binary NPM Modules](#binary-npm-modules)
 
@@ -188,7 +189,14 @@ After you've edit environmental variables or settings.json, you can reconfigure 
 
     mup reconfig
 
-This will also restart the app, so you can use it for that purpose even if you didn't change the configuration file. 
+This will also restart the app, so you can use it for that purpose even if you didn't change the configuration file.
+
+### Accessing the Database
+
+You can't access the MongoDB from the outside of the server. To access the MongoDB shell you need to log into your server by SSH first and then run the following command.
+
+    mongo appName
+
 
 ### Multiple Deployments
 
