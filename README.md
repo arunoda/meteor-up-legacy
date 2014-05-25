@@ -39,7 +39,6 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
 * Auto-Start after the server reboot (using upstart)
 * Stepdown User Privileges
 * Revert to the previous version, if the deployment failed
-* Support for **Hot Code Reload**
 * Secured MongoDB Installation (Optional)
 * Pre-Installed PhantomJS (Optional)
 
