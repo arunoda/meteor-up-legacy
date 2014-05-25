@@ -233,6 +233,6 @@ So, you need to specify binary modules and which packages are then as shown belo
 
 If you need to see the output of `meteor-up` (to see more precisely where it's failing or hanging, for example), run it like so:
 
-    DEBUG=1 mup <command>
+    DEBUG=* mup <command>
 
 where `<command>` is one of the `mup` commands such as `setup`, `deploy`, etc.
