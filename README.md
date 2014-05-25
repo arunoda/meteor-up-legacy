@@ -21,6 +21,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
 - [Accessing the Database](#accessing-the-database)
 - [Multiple Deployments](#multiple-deployments)
 - [Binary NPM Modules](#binary-npm-modules)
+- [Troubleshooting](#troubleshooting)
 
 ### Features
 
@@ -227,3 +228,11 @@ So, you need to specify binary modules and which packages are then as shown belo
   ...
 }
 ~~~
+
+### Troubleshooting
+
+If you need to see the output of `meteor-up` (to see more precisely where it's failing or hanging, for example), run it like so:
+
+    DEBUG=1 mup <command>
+
+where `<command>` is one of the `mup` commands such as `setup`, `deploy`, etc.
