@@ -17,8 +17,8 @@ sudo apt-get update
   NODE_VERSION=0.10.28
 <% } %>
 
-ARCH=`uname -m`
-if [[ ${ARCH} == 'x86_64' ]]; then
+ARCH=$(python -c 'import platform; print platform.architecture()[0]')
+if [[ ${ARCH} == '64bit' ]]; then
   NODE_ARCH=x64
 else
   NODE_ARCH=x86
