@@ -20,6 +20,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
 - [Accessing the Database](#accessing-the-database)
 - [Multiple Deployments](#multiple-deployments)
+- [Multiple OS Support](#multiple-os-support)
 - [Binary NPM Modules](#binary-npm-modules)
 - [Troubleshooting](#troubleshooting)
 
@@ -121,11 +122,11 @@ The setup process will require NOPASSWD access to sudo. (Since Meteor needs port
 You can add your user to the sudo group:
 
     sudo adduser *username*  sudo
-    
+
 And you also need to add NOPASSWD to the sudoers file:
 
     sudo visudo
- 
+
     # replace this line
     %sudo  ALL=(ALL) ALL
 
@@ -161,9 +162,9 @@ Meteor Up checks for if the deployment is successful or not just after the deplo
 
 #### Multiple Deployment Targets
 
-You can use an array to deploy to multiple servers at once. 
+You can use an array to deploy to multiple servers at once.
 
-To deploy to *different* environments (e.g. staging, production, etc.), use separate Meteor Up configurations in separate directories, with each directory containing separate `mup.json` and `settings.json` files, and the `mup.json` files' `app` field pointing back to your app's local directory. 
+To deploy to *different* environments (e.g. staging, production, etc.), use separate Meteor Up configurations in separate directories, with each directory containing separate `mup.json` and `settings.json` files, and the `mup.json` files' `app` field pointing back to your app's local directory.
 
 #### Custom Meteor Binary
 
@@ -197,6 +198,34 @@ You can't access the MongoDB from the outside of the server. To access the Mongo
 
     mongo appName
 
+### Multiple OS Support
+
+Meteor UP supports multiple operating systems. See the list of supported operation systems:
+
+* linux - Any Ubuntu/Debian based OS
+* sunos - Open Solaris based OS (i.e: SmartOS)
+
+All you've to do is, specify the type of `os` when defining the server info. See below:
+
+> If you've leave `os`as blank, `linux` will be set as the default value
+
+~~~js
+{
+  "servers": [
+    {
+      "host": "my-linux-box",
+      "username": "root",
+      "password": "password"
+    },
+    {
+      "host": "my-solaris-box",
+      "username": "root",
+      "password": "password",
+      "os": "sunos"
+    }
+  ],
+}
+~~~
 
 ### Multiple Deployments
 
@@ -222,7 +251,7 @@ So, you need to specify binary modules and which packages are then as shown belo
 
   "binaryNpmModules": {
     "meteor-package-name": ["npm-module1", "npm-module2"]
-  } 
+  }
 
   ...
 }
