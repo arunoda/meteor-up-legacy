@@ -11,6 +11,7 @@ sudo tar xvzf bundle.tar.gz > /dev/null
 # rebuilding fibers
 cd ${BUNDLE_DIR}/programs/server
 sudo npm install fibers
+sudo npm install bcrypt
 
 # rebuilding other modules inside packages
 <% for(var packageName in binaryNpmModules) { %>
@@ -28,7 +29,7 @@ fi
 ## backup current version
 if [[ -d app ]]; then
   sudo mv app old_app
-fi 
+fi
 
 sudo mv tmp/bundle app
 
@@ -63,5 +64,4 @@ echo "Checking is app booted or not?"
 curl localhost:${PORT} || revert_app
 
 # chown to support dumping heapdump and etc
-sudo chown -R meteoruser app 
-
+sudo chown -R meteoruser app

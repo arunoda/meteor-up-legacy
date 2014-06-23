@@ -11,6 +11,7 @@ sudo tar xvzf bundle.tar.gz > /dev/null
 # rebuilding fibers
 cd ${BUNDLE_DIR}/programs/server
 sudo npm install fibers
+sudo npm install bcrypt
 
 # rebuilding other modules inside packages
 <% for(var packageName in binaryNpmModules) { %>
