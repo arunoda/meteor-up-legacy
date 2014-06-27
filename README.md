@@ -73,6 +73,7 @@ This will create two files in your Meteor Up project directory, which are:
       "username": "root",
       "password": "password"
       // or pem file (ssh based authentication)
+      // WARNING: Keys protected by a passphrase are not supported
       //"pem": "~/.ssh/id_rsa"
     }
   ],
@@ -117,7 +118,7 @@ This will setup the server for the mup deployments. It will take around 2-5 minu
 
 #### Ssh based authentication
 
-The setup process will require NOPASSWD access to sudo. (Since Meteor needs port 80, sudo access is required.)
+Please ensure your key file (pem) is not protected by a passphrase. Also the setup process will require NOPASSWD access to sudo. (Since Meteor needs port 80, sudo access is required.)
 
 You can add your user to the sudo group:
 
