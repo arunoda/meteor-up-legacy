@@ -75,6 +75,8 @@ This will create two files in your Meteor Up project directory, which are:
       // or pem file (ssh based authentication)
       // WARNING: Keys protected by a passphrase are not supported
       //"pem": "~/.ssh/id_rsa"
+      // Also, for non-standard ssh port use this
+      //"sshOptions": { "Port" : 49154 }
     }
   ],
 
