@@ -147,7 +147,7 @@ This is how Meteor Up will configure the server for you based on the given `appN
 * your app lives at `/opt/<appName>/app`
 * mup uses `upstart` with a config file at `/etc/init/<appName>.conf`
 * you can start and stop the app with upstart: `start <appName>` and `stop <appName>`
-* logs are located at: `/var/log/upstart/app.log`
+* logs are located at: `/var/log/upstart/<appName>.log`
 * MongoDB installed and bound to the local interface (cannot access from the outside)
 * the database is named `<appName>`
 
