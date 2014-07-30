@@ -86,8 +86,8 @@ This will create two files in your Meteor Up project directory:
   // WARNING: Node.js is required! Only skip if you already have Node.js installed on server.
   "setupNode": true,
 
-  // WARNING: nodeVersion defaults to 0.10.28 if omitted. Do not use v, just the version number.
-  "nodeVersion": "0.10.28",
+  // WARNING: nodeVersion defaults to 0.10.29 if omitted. Do not use v, just the version number.
+  "nodeVersion": "0.10.29",
 
   // Install PhantomJS on the server
   "setupPhantom": true,
