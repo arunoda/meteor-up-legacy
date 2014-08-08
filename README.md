@@ -18,6 +18,8 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any m
     - [Multiple Deployment Targets](#multiple-deployment-targets)
 - [Access Logs](#access-logs)
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
+- [Updating](#updating)
+- [Troubleshooting](#troubleshooting)
 
 ### Features
 
@@ -140,3 +142,17 @@ After you've edit environmental variables or settings.json, you can reconfigure 
     mup reconfig
 
 This will also restart the app, so you can use it for that purpose even if you didn't change the configuration file. 
+
+### Updating
+
+To udate `mup` to the latest version, just type:
+
+    npm update mup -g
+
+You should try and keep `mup` up to date in order to keep up with the latest Meteor changes. But note that if you need to update your Node version, you'll have to run `mup setup` again before deploying. 
+
+### Troubleshooting
+
+If you suddenly can't deploy your app anymore, first use the `mup logs -f` command to check the logs for error messages. 
+
+One of the most common problems is your Node version getting out of date. In that case, see “Updating” section above.
