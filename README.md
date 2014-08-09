@@ -22,6 +22,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 - [Multiple Deployments](#multiple-deployments)
 - [Multiple OS Support](#multiple-os-support)
 - [Binary NPM Modules](#binary-npm-modules)
+- [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
 
 ### Features
@@ -258,8 +259,22 @@ So, you need to specify in `mup.json` the binary modules and which packages they
 }
 ~~~
 
+### Updating
+
+To update `mup` to the latest version, just type:
+
+    npm update mup -g
+
+You should try and keep `mup` up to date in order to keep up with the latest Meteor changes. But note that if you need to update your Node version, you'll have to run `mup setup` again before deploying.
+
 ### Troubleshooting
 
+#### Check Logs
+If you suddenly can't deploy your app anymore, first use the `mup logs -f` command to check the logs for error messages.
+
+One of the most common problems is your Node version getting out of date. In that case, see “Updating” section above.
+
+#### Verbose Output
 If you need to see the output of `meteor-up` (to see more precisely where it's failing or hanging, for example), run it like so:
 
     DEBUG=* mup <command>
