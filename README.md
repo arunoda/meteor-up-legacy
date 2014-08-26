@@ -21,7 +21,6 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 - [Accessing the Database](#accessing-the-database)
 - [Multiple Deployments](#multiple-deployments)
 - [Multiple OS Support](#multiple-os-support)
-- [Binary NPM Modules](#binary-npm-modules)
 - [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
 
@@ -87,8 +86,8 @@ This will create two files in your Meteor Up project directory:
   // WARNING: Node.js is required! Only skip if you already have Node.js installed on server.
   "setupNode": true,
 
-  // WARNING: nodeVersion defaults to 0.10.29 if omitted. Do not use v, just the version number.
-  "nodeVersion": "0.10.29",
+  // WARNING: nodeVersion defaults to 0.10.31 if omitted. Do not use v, just the version number.
+  "nodeVersion": "0.10.31",
 
   // Install PhantomJS on the server
   "setupPhantom": true,
@@ -240,24 +239,6 @@ We need to have two separate Meteor Up projects. For that, create two directorie
 In the staging `mup.json`, add a field called `appName` with the value `staging`. You can add any name you prefer instead of `staging`. Since we are running our staging app on port 8000, add an environment variable called `PORT` with the value 8000.
 
 Now setup both projects and deploy as you need.
-
-### Binary NPM Modules
-
-If you are using binary npm modules either with meteor-npm or with some other package you can't deploy and run your app by default. That's because binaries in the bundle are not compatible with your deployment environment.
-
-So, you need to specify in `mup.json` the binary modules and which packages they are in.
-
-~~~json
-{
-  ...
-
-  "binaryNpmModules": {
-    "meteor-package-name": ["npm-module1", "npm-module2"]
-  }
-
-  ...
-}
-~~~
 
 ### Updating
 

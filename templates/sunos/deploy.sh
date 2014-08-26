@@ -10,14 +10,15 @@ sudo tar xvzf bundle.tar.gz > /dev/null
 
 # rebuilding fibers
 cd ${BUNDLE_DIR}/programs/server
-sudo npm install fibers
-sudo npm install bcrypt
 
-# rebuilding other modules inside packages
-<% for(var packageName in binaryNpmModules) { %>
-  cd ${BUNDLE_DIR}/programs/server/npm/<%= packageName %>/main
-  sudo npm rebuild <%= binaryNpmModules[packageName].join(' ') %>
-<% } %>
+if [ -f package.json ]; then
+  # support for 0.9
+  sudo npm install
+else 
+  # support for older versions
+  sudo npm install fibers
+  sudo npm install bcrypt
+fi
 
 cd /opt/<%= appName %>/
 
