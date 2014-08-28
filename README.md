@@ -23,6 +23,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 - [Multiple OS Support](#multiple-os-support)
 - [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
+- [Binary Npm Module Support](#binary-npm-module-support)
 
 ### Features
 
@@ -261,3 +262,15 @@ If you need to see the output of `meteor-up` (to see more precisely where it's f
     DEBUG=* mup <command>
 
 where `<command>` is one of the `mup` commands such as `setup`, `deploy`, etc.
+
+### Binary Npm Module Support
+
+Some of the Meteor core packages as well some of the community packages comes with npm modules which has been written `C` or `C++`. These modules are platform dependent. 
+So, we need to do special handling, before running the bundle generated from `meteor bundle`.
+(meteor up uses the meteor bundle)
+
+Fortunately, Meteor Up **will take care** of that job for you and it will detect binary npm modules and re-build them before running your app on the given server.
+
+> * Meteor 0.9 adds a similar feature where it allows package developers to publish their packages for different architecures, if their packages has binary npm modules.
+> * As a side effect of that, if you are using a binary npm module inside your app via `meteorhacks:npm` package, you won't be able to deploy into `*.meteor.com`.
+> * But, you'll be able to deploy with Meteor Up since we are re-building binary modules on the server.
