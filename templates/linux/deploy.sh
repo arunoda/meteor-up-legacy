@@ -1,4 +1,51 @@
 #!/bin/bash
+
+# utilities
+
+gyp_rebuild_inside_node_modules () {
+  for npmModule in ./*; do 
+    if [ -f $npmModule/binding.gyp ]; then 
+      cd $npmModule
+      echo "=> re-installing binary npm module '${npmModule:2}' of package '${package:2}'"
+      sudo node-gyp rebuild
+      # recursively rebuild npm modules inside node_modules
+      if [ -d ./node_modules ]; then
+        cd ./node_modules
+          gyp_rebuild_inside_node_modules
+        cd ../
+      fi
+      cd ..
+    fi
+  done
+}
+
+rebuild_binary_npm_modules () {
+  for package in ./*; do 
+    if [ -d $package ]; then
+      cd $package/node_modules
+        gyp_rebuild_inside_node_modules
+      cd ../../
+    fi
+  done
+}
+
+revert_app (){
+  if [[ -d old_app ]]; then
+    sudo rm -rf app
+    sudo mv old_app app
+    sudo stop <%= appName %> || :
+    sudo start <%= appName %> || :
+
+    echo "Latest deployment failed! Reverted back to the previous version." 1>&2
+    exit 1
+  else
+    echo "App did not pick up! Please check app logs." 1>&2
+    exit 1
+  fi
+}
+
+
+# logic
 set -e
 
 TMP_DIR=/opt/<%= appName %>/tmp
@@ -14,6 +61,9 @@ cd ${BUNDLE_DIR}/programs/server
 if [ -f package.json ]; then
   # support for 0.9
   sudo npm install
+  cd npm
+  rebuild_binary_npm_modules
+  cd ../
 else 
   # support for older versions
   sudo npm install fibers
@@ -37,21 +87,6 @@ sudo mv tmp/bundle app
 # restart app
 sudo stop <%= appName %> || :
 sudo start <%= appName %> || :
-
-revert_app (){
-  if [[ -d old_app ]]; then
-    sudo rm -rf app
-    sudo mv old_app app
-    sudo stop <%= appName %> || :
-    sudo start <%= appName %> || :
-
-    echo "Latest deployment failed! Reverted back to the previous version." 1>&2
-    exit 1
-  else
-    echo "App did not pick up! Please check app logs." 1>&2
-    exit 1
-  fi
-}
 
 #wait and check
 echo "Waiting for MongoDB to initialize. (5 minutes)"
