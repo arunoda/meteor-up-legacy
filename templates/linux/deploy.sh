@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # utilities
-
 gyp_rebuild_inside_node_modules () {
   for npmModule in ./*; do 
     if [ -f $npmModule/binding.gyp ]; then 
@@ -21,10 +20,14 @@ gyp_rebuild_inside_node_modules () {
 
 rebuild_binary_npm_modules () {
   for package in ./*; do 
-    if [ -d $package ]; then
+    if [ -d $package/node_modules ]; then
       cd $package/node_modules
         gyp_rebuild_inside_node_modules
       cd ../../
+    elif [ -d $package/main/node_module ]; then
+      cd $package/node_modules
+        gyp_rebuild_inside_node_modules
+      cd ../../../
     fi
   done
 }
@@ -58,13 +61,22 @@ sudo tar xvzf bundle.tar.gz > /dev/null
 # rebuilding fibers
 cd ${BUNDLE_DIR}/programs/server
 
-if [ -f package.json ]; then
-  # support for 0.9
-  sudo npm install
+if [ -d ./npm ]; then
   cd npm
   rebuild_binary_npm_modules
   cd ../
-else 
+fi
+
+if [ -d ./node_modules ]; then
+  cd ./node_modules
+  gyp_rebuild_inside_node_modules
+  cd ../
+fi
+
+if [ -f package.json ]; then
+  # support for 0.9
+  sudo npm install
+else
   # support for older versions
   sudo npm install fibers
   sudo npm install bcrypt
