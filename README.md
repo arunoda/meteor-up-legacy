@@ -1,3 +1,5 @@
+> Meteor 0.9 comes with the latest release. Update mup with `npm i -g mup`
+
 # Meteor Up
 
 #### Production Quality Meteor Deployments
