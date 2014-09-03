@@ -271,7 +271,7 @@ where `<command>` is one of the `mup` commands such as `setup`, `deploy`, etc.
 
 ### Binary Npm Module Support
 
-Some of the Meteor core packages as well some of the community packages comes with npm modules which has been written `C` or `C++`. These modules are platform dependent. 
+Some of the Meteor core packages as well some of the community packages comes with npm modules which has been written in `C` or `C++`. These modules are platform dependent. 
 So, we need to do special handling, before running the bundle generated from `meteor bundle`.
 (meteor up uses the meteor bundle)
 
