@@ -97,10 +97,12 @@ This will create two files in your Meteor Up project directory:
   // Install PhantomJS on the server
   "setupPhantom": true,
 
-  // Application name (no spaces)
+  // Application name (no spaces).
   "appName": "meteor",
 
-  // Location of app (local directory)
+  // Location of app (local directory). This can reference '~' as the users home directory.
+  // i.e., "app": "~/Meteor/my-app",
+  // This is the same as the line below.
   "app": "/Users/arunoda/Meteor/my-app",
 
   // Configure environment
