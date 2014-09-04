@@ -1,3 +1,7 @@
+> Meteor 0.9 support comes with the latest release. 
+> * Update mup with `npm i -g mup`
+> * Then apply `mup setup` once again
+
 # Meteor Up
 
 #### Production Quality Meteor Deployments
@@ -93,10 +97,12 @@ This will create two files in your Meteor Up project directory:
   // Install PhantomJS on the server
   "setupPhantom": true,
 
-  // Application name (no spaces)
+  // Application name (no spaces).
   "appName": "meteor",
 
-  // Location of app (local directory)
+  // Location of app (local directory). This can reference '~' as the users home directory.
+  // i.e., "app": "~/Meteor/my-app",
+  // This is the same as the line below.
   "app": "/Users/arunoda/Meteor/my-app",
 
   // Configure environment
@@ -265,7 +271,7 @@ where `<command>` is one of the `mup` commands such as `setup`, `deploy`, etc.
 
 ### Binary Npm Module Support
 
-Some of the Meteor core packages as well some of the community packages comes with npm modules which has been written `C` or `C++`. These modules are platform dependent. 
+Some of the Meteor core packages as well some of the community packages comes with npm modules which has been written in `C` or `C++`. These modules are platform dependent. 
 So, we need to do special handling, before running the bundle generated from `meteor bundle`.
 (meteor up uses the meteor bundle)
 
