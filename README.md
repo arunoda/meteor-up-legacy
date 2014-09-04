@@ -1,6 +1,6 @@
 > Meteor 0.9 support comes with the latest release. 
 > * Update mup with `npm i -g mup`
-> * Then setup your project again once with `mup setup`
+> * Then apply `mup setup`once again
 
 # Meteor Up
 
