@@ -6,7 +6,8 @@
     "nodemiral": "0.3.x",
     "cjson": "0.3.x",
     "uuid": "1.4.x",
-    "colors": "0.6.x"
+    "colors": "0.6.x",
+    "rimraf": "2.x.x"
   },
   "bin": {
     "mup": "./bin/mup"
