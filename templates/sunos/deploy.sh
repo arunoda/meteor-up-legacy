@@ -2,19 +2,20 @@
 
 # utilities
 gyp_rebuild_inside_node_modules () {
-  for npmModule in ./*; do 
-    if [ -f $npmModule/binding.gyp ]; then 
-      cd $npmModule
+  for npmModule in ./*; do
+    cd $npmModule
+    if [ -f binding.gyp ]; then
       echo "=> re-installing binary npm module '${npmModule:2}' of package '${package:2}'"
-      node-gyp rebuild
-      # recursively rebuild npm modules inside node_modules
-      if [ -d ./node_modules ]; then
-        cd ./node_modules
-          gyp_rebuild_inside_node_modules
-        cd ../
-      fi
-      cd ..
+      sudo node-gyp rebuild
     fi
+
+    # recursively rebuild npm modules inside node_modules
+    if [ -d ./node_modules ]; then
+      cd ./node_modules
+        gyp_rebuild_inside_node_modules
+      cd ../
+    fi
+    cd ..
   done
 }
 
