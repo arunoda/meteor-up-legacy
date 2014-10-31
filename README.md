@@ -28,7 +28,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 - [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
 - [Binary Npm Module Support](#binary-npm-module-support)
-- [Additional Resources](#additiona-resources)
+- [Additional Resources](#additional-resources)
 
 ### Features
 
