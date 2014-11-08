@@ -30,11 +30,12 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 
 * Single command server setup
 * Single command deployment
+* Multi server deployment
 * Environmental Variables management
 * Support for [`settings.json`](http://docs.meteor.com/#meteor_settings)
 * Password or Private Key(pem) based server authentication
 * Access, logs from the terminal (supports log tailing)
-* Support for multiple meteor deployments
+* Support for multiple meteor deployments (experimental)
 
 ### Server Configuration
 
