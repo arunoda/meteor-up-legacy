@@ -205,6 +205,12 @@ This will also restart the app, so you can use it for that purpose even if you h
 You can't access the MongoDB from the outside the server. To access the MongoDB shell you need to log into your server via SSH first and then run the following command:
 
     mongo appName
+    
+### Change Ownership of Additional Directories
+
+If you are planning to access files from a directory outside of 'app', set the owner to 'meteoruser'. [Meteor-CollectionFS](https://github.com/CollectionFS/Meteor-CollectionFS) + [Meteor-cfs-filesystem](https://github.com/CollectionFS/Meteor-cfs-filesystem) is a popular file management solution for Meteor, and by default creates a directory 'cfs' next to 'app'.
+
+    sudo chown -R meteoruser /opt/<appName>/<otherDir>
 
 ### Multiple OS Support
 
