@@ -19,6 +19,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 - [Access Logs](#access-logs)
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
 - [Accessing the Database](#accessing-the-database)
+- [Change Ownership of Additional Directories](#change-ownership-of-additional-directories)
 - [Multiple Deployments](#multiple-deployments)
 - [Multiple OS Support](#multiple-os-support)
 - [Updating](#updating)
