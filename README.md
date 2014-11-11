@@ -19,7 +19,6 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 - [Access Logs](#access-logs)
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
 - [Accessing the Database](#accessing-the-database)
-- [Change Ownership of Additional Directories](#change-ownership-of-additional-directories)
 - [Multiple Deployments](#multiple-deployments)
 - [Multiple OS Support](#multiple-os-support)
 - [Updating](#updating)
@@ -206,12 +205,6 @@ This will also restart the app, so you can use it for that purpose even if you h
 You can't access the MongoDB from the outside the server. To access the MongoDB shell you need to log into your server via SSH first and then run the following command:
 
     mongo appName
-    
-### Change Ownership of Additional Directories
-
-If you are planning to access files from a directory outside of 'app', set the owner to 'meteoruser'. [Meteor-CollectionFS](https://github.com/CollectionFS/Meteor-CollectionFS) + [Meteor-cfs-filesystem](https://github.com/CollectionFS/Meteor-cfs-filesystem) is a popular file management solution for Meteor, and by default creates a directory 'cfs' next to 'app'.
-
-    sudo chown -R meteoruser /opt/<appName>/<otherDir>
 
 ### Multiple OS Support
 
@@ -289,3 +282,4 @@ Fortunately, Meteor Up **will take care** of that job for you and it will detect
 ### Additional Resources
 
 * [Using Meteor Up with Nitrous.io](https://github.com/arunoda/meteor-up/wiki/Using-Meteor-Up-with-Nitrous.io)
+* [Change Ownership of Additional Directories](https://github.com/arunoda/meteor-up/wiki/Change-Ownership-of-Additional-Directories)
