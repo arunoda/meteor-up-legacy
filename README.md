@@ -1,7 +1,3 @@
-> Meteor 0.9 support comes with the latest release. 
-> * Update mup with `npm i -g mup`
-> * Then apply `mup setup` once again
-
 # Meteor Up
 
 #### Production Quality Meteor Deployments
@@ -34,11 +30,12 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 
 * Single command server setup
 * Single command deployment
+* Multi server deployment
 * Environmental Variables management
 * Support for [`settings.json`](http://docs.meteor.com/#meteor_settings)
 * Password or Private Key(pem) based server authentication
 * Access, logs from the terminal (supports log tailing)
-* Support for multiple meteor deployments
+* Support for multiple meteor deployments (experimental)
 
 ### Server Configuration
 
@@ -285,3 +282,4 @@ Fortunately, Meteor Up **will take care** of that job for you and it will detect
 ### Additional Resources
 
 * [Using Meteor Up with Nitrous.io](https://github.com/arunoda/meteor-up/wiki/Using-Meteor-Up-with-Nitrous.io)
+* [Change Ownership of Additional Directories](https://github.com/arunoda/meteor-up/wiki/Change-Ownership-of-Additional-Directories)
