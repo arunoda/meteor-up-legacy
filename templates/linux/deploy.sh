@@ -58,6 +58,7 @@ BUNDLE_DIR=${TMP_DIR}/bundle
 cd ${TMP_DIR}
 sudo rm -rf bundle
 sudo tar xvzf bundle.tar.gz > /dev/null
+sudo chown -R ${USER} ${BUNDLE_DIR}
 
 # rebuilding fibers
 cd ${BUNDLE_DIR}/programs/server
