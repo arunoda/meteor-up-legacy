@@ -7,7 +7,8 @@
     "cjson": "0.3.x",
     "uuid": "1.4.x",
     "colors": "0.6.x",
-    "rimraf": "2.x.x"
+    "rimraf": "2.x.x",
+    "underscore": "1.7.0"
   },
   "bin": {
     "mup": "./bin/mup"
