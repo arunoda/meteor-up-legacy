@@ -106,8 +106,8 @@ This will create two files in your Meteor Up project directory:
   "app": "/Users/arunoda/Meteor/my-app",
 
   // Configure environment
-  // ROOT_URL must be set to https://YOURDOMAIN.com when using the spiderable package & force 
-  // your connection to https in your NGINX proxy or Cloudflare
+  // ROOT_URL must be set to https://YOURDOMAIN.com when using the spiderable package & force SSL
+  // your NGINX proxy or Cloudflare. When using just Meteor on SSL without spiderable this is not necessary
   "env": {
     "PORT": 80,
     "ROOT_URL": "http://myapp.com",
