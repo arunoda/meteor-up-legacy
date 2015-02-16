@@ -201,11 +201,15 @@ Mup can tail logs from the server and supports all the options of `tail`.
 
 ### Reconfiguring & Restarting
 
-After you've edit environmental variables or `settings.json`, you can reconfigure the app without deploying again. Use the following command for that.
+After you've edit environmental variables or `settings.json`, you can reconfigure the app without deploying again. Use the following command to do update the settings and restart the app.
 
     mup reconfig
 
-This will also restart the app, so you can use it for that purpose even if you haven't changed the configuration file.
+If you want to stop, start or restart your app for any reason, you can use the following commands to manage it.
+
+    mup stop
+    mup start
+    mup restart
 
 ### Accessing the Database
 
@@ -306,7 +310,7 @@ where `<command>` is one of the `mup` commands such as `setup`, `deploy`, etc.
 
 ### Binary Npm Module Support
 
-Some of the Meteor core packages as well some of the community packages comes with npm modules which has been written in `C` or `C++`. These modules are platform dependent. 
+Some of the Meteor core packages as well some of the community packages comes with npm modules which has been written in `C` or `C++`. These modules are platform dependent.
 So, we need to do special handling, before running the bundle generated from `meteor bundle`.
 (meteor up uses the meteor bundle)
 
