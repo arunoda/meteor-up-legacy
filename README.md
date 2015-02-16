@@ -201,15 +201,11 @@ Mup can tail logs from the server and supports all the options of `tail`.
 
 ### Reconfiguring & Restarting
 
-After you've edit environmental variables or `settings.json`, you can reconfigure the app without deploying again. Use the following command for that.
+After you've edit environmental variables or `settings.json`, you can reconfigure the app without deploying again. Use the following command to do update the settings and restart the app.
 
     mup reconfig
 
-This will also restart the app, so you can use it for that purpose even if you haven't changed the configuration file.
-
-### Start / Stop & Restart
-
-If you want to stop, start or restart your instances for any reason, you can use the following commands to manage them
+If you want to stop, start or restart your app for any reason, you can use the following commands to manage it.
 
     mup stop
     mup start
@@ -221,12 +217,6 @@ You can't access the MongoDB from the outside the server. To access the MongoDB 
 
     mongo appName
 
-### Resetting the Database
-
-The same as `meteor reset`, use `mup reset` to drop the database associated with the application
-
-    mup reset
-    
 ### Server Specific Environment Variables
 
 It is possible to provide server specific environment variables. Add the `env` object along with the server details in the `mup.json`. Here's an example:
