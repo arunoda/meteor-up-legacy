@@ -1,6 +1,6 @@
 {
   "name": "mup",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Production Quality Meteor Deployments",
   "dependencies": {
     "nodemiral": "0.3.x",
