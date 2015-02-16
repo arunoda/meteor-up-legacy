@@ -23,6 +23,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 - [Accessing the Database](#accessing-the-database)
 - [Multiple Deployments](#multiple-deployments)
 - [Server Specific Environment Variables](#server-specific-environment-variables)
+- [SSL Support](#ssl-support)
 - [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
 - [Binary Npm Module Support](#binary-npm-module-support)
@@ -245,6 +246,41 @@ We need to have two separate Meteor Up projects. For that, create two directorie
 In the staging `mup.json`, add a field called `appName` with the value `staging`. You can add any name you prefer instead of `staging`. Since we are running our staging app on port 8000, add an environment variable called `PORT` with the value 8000.
 
 Now setup both projects and deploy as you need.
+
+### SSL Support
+
+Meteor Up has the built in SSL support. It uses [stud](https://github.com/bumptech/stud) SSL terminator for that. First you need to get a SSL certificate from some provider. This is how to do that:
+
+* [First you need to generate a CSR file and the private key](http://www.rackspace.com/knowledge_center/article/generate-a-csr-with-openssl)
+* Then purchase a SSL certificate.
+* Then generate a SSL certificate from your SSL providers UI.
+* Then that'll ask to provide the CSR file. Upload the CSR file we've generated.
+* When asked to select your SSL server type, select it as nginx.
+* Then you'll get a set of files (your domain certificate and CA files).
+
+Now you need combine SSL certificate(s) with the private key and save it in the mup config directory as `ssl.pem`. Check this [guide](http://alexnj.com/blog/configuring-a-positivessl-certificate-with-stud.html) to do that.
+
+Then add following configuration to your `mup.json` file.
+
+~~~js
+{
+  ...
+
+  "ssl": {
+    "pem": "./ssl.pem",
+    //"backendPort": 80
+  }
+
+  ...
+}
+~~~
+
+Now, simply do `mup setup` and now you've the SSL support.
+
+> * By default, it'll think your Meteor app is running on port 80. If it's not, change it with the `backendPort` configuration field.
+> * SSL terminator will run on the default SSL port `443`
+> * If you are using multiple servers, SSL terminators will run on the each server (This is made to work with [cluster](https://github.com/meteorhacks/cluster))
+> * Right now, you can't have multiple SSL terminators running inside a single server
 
 ### Updating
 
