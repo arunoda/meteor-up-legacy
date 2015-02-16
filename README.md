@@ -22,7 +22,7 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 - [Reconfiguring & Restarting](#reconfiguring--restarting)
 - [Accessing the Database](#accessing-the-database)
 - [Multiple Deployments](#multiple-deployments)
-- [Multiple OS Support](#multiple-os-support)
+- [Server Specific Environment Variables](#server-specific-environment-variables)
 - [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
 - [Binary Npm Module Support](#binary-npm-module-support)
@@ -81,7 +81,9 @@ This will create two files in your Meteor Up project directory:
       // WARNING: Keys protected by a passphrase are not supported
       //"pem": "~/.ssh/id_rsa"
       // Also, for non-standard ssh port use this
-      //"sshOptions": { "Port" : 49154 }
+      //"sshOptions": { "Port" : 49154 },
+      // server specific environment variables
+      "env": {}
     }
   ],
 
@@ -210,32 +212,27 @@ You can't access the MongoDB from the outside the server. To access the MongoDB 
 
     mongo appName
 
-### Multiple OS Support
+### Server Specific Environment Variables
 
-Meteor UP supports multiple operating systems:
-
-* linux - Any Ubuntu/Debian based OS
-* sunos - Open Solaris based OS (i.e: SmartOS)
-
-All you have to do is specify the type of `os` (default `linux` if omitted) when defining the server info:
+It is possible to provide server specific environment variables. Add the `env` object along with the server details in the `mup.json`. Here's an example:
 
 ~~~js
 {
   "servers": [
     {
-      "host": "my-linux-box",
+      "host": "hostname",
       "username": "root",
       "password": "password"
-    },
-    {
-      "host": "my-solaris-box",
-      "username": "root",
-      "password": "password",
-      "os": "sunos"
+      "env": {
+        "SOME_ENV": "the-value"
+      }
     }
-  ],
+
+  ...
 }
 ~~~
+
+By default, Meteor UP adds `CLUSTER_ENDPOINT_URL` to make [cluster](https://github.com/meteorhacks/cluster) deployment simple. But you can override it by defining it yourself.
 
 ### Multiple Deployments
 
