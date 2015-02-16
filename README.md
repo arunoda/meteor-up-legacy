@@ -207,12 +207,26 @@ After you've edit environmental variables or `settings.json`, you can reconfigur
 
 This will also restart the app, so you can use it for that purpose even if you haven't changed the configuration file.
 
+### Start / Stop & Restart
+
+If you want to stop, start or restart your instances for any reason, you can use the following commands to manage them
+
+    mup stop
+    mup start
+    mup restart
+
 ### Accessing the Database
 
 You can't access the MongoDB from the outside the server. To access the MongoDB shell you need to log into your server via SSH first and then run the following command:
 
     mongo appName
 
+### Resetting the Database
+
+The same as `meteor reset`, use `mup reset` to drop the database associated with the application
+
+    mup reset
+    
 ### Server Specific Environment Variables
 
 It is possible to provide server specific environment variables. Add the `env` object along with the server details in the `mup.json`. Here's an example:
@@ -306,7 +320,7 @@ where `<command>` is one of the `mup` commands such as `setup`, `deploy`, etc.
 
 ### Binary Npm Module Support
 
-Some of the Meteor core packages as well some of the community packages comes with npm modules which has been written in `C` or `C++`. These modules are platform dependent. 
+Some of the Meteor core packages as well some of the community packages comes with npm modules which has been written in `C` or `C++`. These modules are platform dependent.
 So, we need to do special handling, before running the bundle generated from `meteor bundle`.
 (meteor up uses the meteor bundle)
 
