@@ -134,6 +134,8 @@ This will setup the server for the `mup` deployments. It will take around 2-5 mi
 
 Please ensure your key file (pem) is not protected by a passphrase. Also the setup process will require NOPASSWD access to sudo. (Since Meteor needs port 80, sudo access is required.)
 
+Make sure you also add your ssh key to the ```/YOUR_USERNAME/.ssh/authorized_keys``` list
+
 You can add your user to the sudo group:
 
     sudo adduser *username*  sudo
