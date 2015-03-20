@@ -2,7 +2,7 @@
 
 #### Production Quality Meteor Deployments
 
-Note: Meteor Up does not support Windows yet! 
+> **Note: Meteor Up does not support Windows yet!**
 
 Meteor Up (mup for short) is a command line tool that allows you to deploy any [Meteor](http://meteor.com) app to your own server. It supports only Debian/Ubuntu flavours and Open Solaris at the moments. (PRs are welcome)
 
