@@ -9,7 +9,8 @@
     "nodemiral": "0.3.x",
     "rimraf": "2.x.x",
     "underscore": "1.7.0",
-    "uuid": "1.4.x"
+    "uuid": "1.4.x",
+    "archiver": "0.14.x"
   },
   "bin": {
     "mup": "./bin/mup"
