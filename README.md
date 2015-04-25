@@ -2,9 +2,9 @@
 
 #### Production Quality Meteor Deployments
 
-> **Note: Meteor Up does not support Windows yet!**
-
 Meteor Up (mup for short) is a command line tool that allows you to deploy any [Meteor](http://meteor.com) app to your own server. It supports only Debian/Ubuntu flavours and Open Solaris at the moments. (PRs are welcome)
+
+You can use install and use Meteor Up from Linux, Mac and Windows.
 
 > Screencast: [How to deploy a Meteor app with Meteor Up (by Sacha Greif)](https://www.youtube.com/watch?v=WLGdXtZMmiI)
 
@@ -16,8 +16,9 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 - [Creating a Meteor Up Project](#creating-a-meteor-up-project)
 - [Example File](#example-file)
 - [Setting Up a Server](#setting-up-a-server)
-    - [Server Setup Details](#server-setup-details)
 - [Deploying an App](#deploying-an-app)
+- [Additional Setup/Deploy Information](#additional-setupdeploy-information)
+    - [Server Setup Details](#server-setup-details)
     - [Deploy Wait Time](#deploy-wait-time)
     - [Multiple Deployment Targets](#multiple-deployment-targets)
 - [Access Logs](#access-logs)
@@ -54,8 +55,6 @@ Meteor Up (mup for short) is a command line tool that allows you to deploy any [
 ### Installation
 
     npm install -g mup
-
-If you are looking for password-based authentication, you need to [install sshpass](https://gist.github.com/arunoda/7790979) on your local development machine.
 
 ### Creating a Meteor Up Project
 
@@ -132,7 +131,21 @@ This will create two files in your Meteor Up project directory:
 
 This will setup the server for the `mup` deployments. It will take around 2-5 minutes depending on the server's performance and network availability.
 
-#### Ssh based authentication
+### Deploying an App
+
+    mup deploy
+
+This will bundle the Meteor project and deploy it to the server.
+
+### Additional Setup/Deploy Information
+
+#### Deploy Wait Time
+
+Meteor Up checks if the deployment is successful or not just after the deployment. By default, it will wait 10 seconds before the check. You can configure the wait time with the `deployCheckWaitTime` option in the `mup.json`
+
+#### Ssh based authentication with `sudo`
+
+**If your username is `root`, you don't need to follow these steps**
 
 Please ensure your key file (pem) is not protected by a passphrase. Also the setup process will require NOPASSWD access to sudo. (Since Meteor needs port 80, sudo access is required.)
 
@@ -168,16 +181,6 @@ This is how Meteor Up will configure the server for you based on the given `appN
 * the database is named `<appName>`
 
 For more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-up/blob/master/lib/taskLists.js).
-
-### Deploying an App
-
-    mup deploy
-
-This will bundle the Meteor project and deploy it to the server.
-
-#### Deploy Wait Time
-
-Meteor Up checks if the deployment is successful or not just after the deployment. By default, it will wait 10 seconds before the check. You can configure the wait time with the `deployCheckWaitTime` option in the `mup.json`.
 
 #### Multiple Deployment Targets
 
