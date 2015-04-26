@@ -18,21 +18,7 @@ if(action == 'init') {
   var cwd = path.resolve('.');
   //read config and validate it
   var config = Config.read();
-
-  if(config._passwordExists) {
-    //check for sshpass
-    helpers.checkSshPassExists(function(exists) {
-      if(exists) {
-        runActions(config, cwd);
-      } else {
-        var errorMessage = "sshpass required for password based authentication: refer http://git.io/_vHbvQ";
-        console.error(errorMessage.bold.red);
-        process.exit(1);
-      }
-    });
-  } else {
-    runActions(config, cwd);
-  }
+  runActions(config, cwd);
 }
 
 
