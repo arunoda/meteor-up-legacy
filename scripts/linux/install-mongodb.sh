@@ -1,17 +1,20 @@
 #!/bin/bash
 
-# Remove the lock
+set -e
+# we use this data directory for the backward compatibility
+# older mup uses mongodb from apt-get and they used this data directory
+sudo mkdir -p /var/lib/mongodb
+
+sudo docker pull mongo:latest
 set +e
-sudo rm /var/lib/dpkg/lock > /dev/null
-sudo rm /var/cache/apt/archives/lock > /dev/null
-sudo dpkg --configure -a
+sudo docker rm -f mongodb
 set -e
 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
-sudo apt-get update -y
-sudo apt-get install mongodb-org mongodb-org-server mongodb-org-shell mongodb-org-tools -y
-
-# Restart mongodb
-sudo stop mongod || :
-sudo start mongod
+sudo docker run \
+  -d \
+  --restart=always \
+  --publish=127.0.0.1:27017:27017 \
+  --volume=/var/lib/mongodb:/data/db \
+  --volume=/etc/mongodb.conf:/mongodb.conf \
+  --name=mongodb \
+  mongo mongod -f /mongodb.conf
