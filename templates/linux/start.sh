@@ -22,7 +22,6 @@ if [ "$USE_LOCAL_MONGO" == "1" ]; then
   --env-file=$ENV_FILE \
   --link=mongodb:mongodb \
   --env=MONGO_URL=mongodb://mongodb:27017/app \
-  --env=REBULD_NPM_MODULES=1 \
   --name=$APPNAME \
   meteorhacks/meteord
 else
