@@ -30,5 +30,20 @@ fi
 sudo mkdir current
 sudo cp tmp/bundle.tar.gz current/
 
+# rebuild binary module
+cd current
+sudo tar xzf bundle.tar.gz
+
+docker run \
+  --rm \
+  --volume=$APP_DIR/current/bundle/programs/server:/bundle \
+  --entrypoint="/bin/bash" \
+  meteorhacks/meteord -c "cd /bundle && bash /opt/meteord/rebuild_npm_modules.sh"
+
+sudo rm bundle.tar.gz
+sudo tar czf bundle.tar.gz bundle
+sudo rm -rf bundle
+cd ..
+
 # start app
 sudo bash config/start.sh
