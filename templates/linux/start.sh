@@ -17,7 +17,7 @@ if [ "$USE_LOCAL_MONGO" == "1" ]; then
   docker run \
   -d \
   --restart=always \
-  --publish=$PORT:$PORT \
+  --publish=$PORT:80 \
   --volume=$BUNDLE_PATH:/bundle \
   --env-file=$ENV_FILE \
   --link=mongodb:mongodb \
@@ -28,7 +28,7 @@ else
   docker run \
   -d \
   --restart=always \
-  --publish=$PORT:$PORT \
+  --publish=$PORT:80 \
   --volume=$BUNDLE_PATH:/bundle \
   --env-file=$ENV_FILE \
   --env=REBULD_NPM_MODULES=1 \

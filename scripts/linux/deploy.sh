@@ -30,20 +30,26 @@ fi
 sudo mkdir current
 sudo cp tmp/bundle.tar.gz current/
 
-# rebuild binary module
-cd current
-sudo tar xzf bundle.tar.gz
+# We temporarly stopped the binary building
+# Instead we are building for linux 64 from locally
+# That's just like what meteor do
+# We can have option to turn binary building later on, 
+# but not now
 
-docker run \
-  --rm \
-  --volume=$APP_DIR/current/bundle/programs/server:/bundle \
-  --entrypoint="/bin/bash" \
-  meteorhacks/meteord -c "cd /bundle && bash /opt/meteord/rebuild_npm_modules.sh"
+# # rebuild binary module
+# cd current
+# sudo tar xzf bundle.tar.gz
 
-sudo rm bundle.tar.gz
-sudo tar czf bundle.tar.gz bundle
-sudo rm -rf bundle
-cd ..
+# docker run \
+#   --rm \
+#   --volume=$APP_DIR/current/bundle/programs/server:/bundle \
+#   --entrypoint="/bin/bash" \
+#   meteorhacks/meteord -c "cd /bundle && bash /opt/meteord/rebuild_npm_modules.sh"
+
+# sudo rm bundle.tar.gz
+# sudo tar czf bundle.tar.gz bundle
+# sudo rm -rf bundle
+# cd ..
 
 # start app
 sudo bash config/start.sh
