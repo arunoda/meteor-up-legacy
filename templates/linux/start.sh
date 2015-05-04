@@ -34,7 +34,6 @@ else
     --publish=$PORT:80 \
     --volume=$BUNDLE_PATH:/bundle \
     --env-file=$ENV_FILE \
-    --env=REBULD_NPM_MODULES=1 \
     --name=$APPNAME \
     meteorhacks/meteord
 fi
