@@ -1,6 +1,6 @@
 {
-  "name": "mup",
-  "version": "0.10.1",
+  "name": "mupx",
+  "version": "1.0.0",
   "description": "Production Quality Meteor Deployments",
   "dependencies": {
     "async": "^0.9.0",
@@ -13,7 +13,7 @@
     "archiver": "0.14.x"
   },
   "bin": {
-    "mup": "./bin/mup"
+    "mupx": "./bin/mup"
   },
   "author": "Arunoda Susiripala <arunoda.susiripala@gmail.com>",
   "repository": {
