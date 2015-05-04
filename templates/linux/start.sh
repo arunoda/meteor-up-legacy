@@ -24,7 +24,7 @@ if [ "$USE_LOCAL_MONGO" == "1" ]; then
     --volume=$BUNDLE_PATH:/bundle \
     --env-file=$ENV_FILE \
     --link=mongodb:mongodb \
-    --env=MONGO_URL=mongodb://mongodb:27017/app \
+    --env=MONGO_URL=mongodb://mongodb:27017/$APPNAME \
     --name=$APPNAME \
     meteorhacks/meteord
 else
