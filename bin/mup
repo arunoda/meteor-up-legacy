@@ -6,6 +6,7 @@ var Config = require('../lib/config');
 var ActionsRegistry = require('../lib/actions');
 var helpers = require('../lib/helpers');
 require('colors');
+require('../lib/update_notifier.js');
 
 console.log('\nMeteor Up: Production Quality Meteor Deployments'.bold.blue);
 console.log('------------------------------------------------\n'.bold.blue);
