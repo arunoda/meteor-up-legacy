@@ -29,6 +29,7 @@ This version of Meteor Up is powered by [Docker](http://www.docker.com/) and it 
 - [SSL Support](#ssl-support)
 - [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
+- [Migrating from Meteor Up 0.x](#migrating-from-meteor-up-0x)
 
 ### Features
 
@@ -274,7 +275,7 @@ If you need to see the output of `mupx` (to see more precisely where it's failin
 
 where `<command>` is one of the `mupx` commands such as `setup`, `deploy`, etc.
 
-### Upgrading From Meteor Up 0.x
+### Migrating from Meteor Up 0.x
 
 `mupx` is not fully backward compatible with Meteor Up 0.x. But most of the `mup.json` remain the same. Here are some of the changes:
 
