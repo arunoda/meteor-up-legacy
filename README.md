@@ -77,7 +77,7 @@ This will create two files in your Meteor Up project directory:
     {
       "host": "hostname",
       "username": "root",
-      "password": "password"
+      "password": "password",
       // or pem file (ssh based authentication)
       // WARNING: Keys protected by a passphrase are not supported
       //"pem": "~/.ssh/id_rsa"
@@ -108,7 +108,11 @@ This will create two files in your Meteor Up project directory:
 
   // Meteor Up checks if the app comes online just after the deployment.
   // Before mup checks that, it will wait for the number of seconds configured below.
-  "deployCheckWaitTime": 15
+  "deployCheckWaitTime": 15,
+
+  // show a progress bar while uploading. 
+  // Make it false when you deploy using a CI box.
+  "uploadProgressBar": true
 }
 ```
 
@@ -140,7 +144,7 @@ Meteor Up checks if the deployment is successful or not just after the deploymen
 
 #### Ssh based authentication with `sudo`
 
-**If your username is `root`, you don't need to follow these steps**
+**If your username is `root` or using AWS EC2, you don't need to follow these steps**
 
 Please ensure your key file (pem) is not protected by a passphrase. Also the setup process will require NOPASSWD access to sudo. (Since Meteor needs port 80, sudo access is required.)
 
