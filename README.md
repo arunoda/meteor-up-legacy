@@ -130,11 +130,11 @@ This will bundle the Meteor project and deploy it to the server. Bundling proces
 
 ### Other Utility Commands
 
-* `mup reconfig` - reconfigure app with new environment variables and Meteor settings
-* `mup stop` - stop the app
-* `mup start` - start the app
-* `mup restart` - restart the app
-* `mup logs [-f --tail=50]` - get logs
+* `mupx reconfig` - reconfigure app with new environment variables and Meteor settings
+* `mupx stop` - stop the app
+* `mupx start` - start the app
+* `mupx restart` - restart the app
+* `mupx logs [-f --tail=50]` - get logs
 
 ### Additional Setup/Deploy Information
 
