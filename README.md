@@ -101,6 +101,10 @@ This will create two files in your Meteor Up project directory:
   // Install PhantomJS on the server
   "setupPhantom": true,
 
+  // Show a progress bar during the upload of the bundle to the server. 
+  // Might cause an error in some rare cases if set to true, for instance in Shippable CI
+  "enableUploadProgressBar": true,
+
   // Application name (no spaces).
   "appName": "meteor",
 
