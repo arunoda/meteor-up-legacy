@@ -39,6 +39,7 @@ else
 fi
 
 <% if(typeof sslConfig === "object")  { %>
+  docker pull meteorhacks/mup-frontend-server:latest
   docker run \
     -d \
     --restart=always \
