@@ -24,6 +24,7 @@ if [ "$USE_LOCAL_MONGO" == "1" ]; then
     --volume=$BUNDLE_PATH:/bundle \
     --env-file=$ENV_FILE \
     --link=mongodb:mongodb \
+    --hostname="$HOSTNAME-$APPNAME" \
     --env=MONGO_URL=mongodb://mongodb:27017/$APPNAME \
     --name=$APPNAME \
     meteorhacks/meteord
@@ -33,6 +34,7 @@ else
     --restart=always \
     --publish=$PORT:80 \
     --volume=$BUNDLE_PATH:/bundle \
+    --hostname="$HOSTNAME-$APPNAME" \
     --env-file=$ENV_FILE \
     --name=$APPNAME \
     meteorhacks/meteord
