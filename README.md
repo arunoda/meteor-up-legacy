@@ -110,7 +110,7 @@ This will create two files in your Meteor Up project directory:
   // Before mup checks that, it will wait for the number of seconds configured below.
   "deployCheckWaitTime": 15,
 
-  // show a progress bar while uploading. 
+  // show a progress bar while uploading.
   // Make it false when you deploy using a CI box.
   "uploadProgressBar": true
 }
@@ -215,7 +215,7 @@ It is possible to provide server specific environment variables. Add the `env` o
 }
 ~~~
 
-By default, Meteor UP adds `CLUSTER_ENDPOINT_URL` to make [cluster](https://github.com/meteorhacks/cluster) deployment simple. But you can override it by defining it yourself.
+By default, Meteor Up adds `CLUSTER_ENDPOINT_URL` to make [cluster](https://github.com/meteorhacks/cluster) deployment simple. But you can override it by defining it yourself.
 
 ### Multiple Deployments
 
@@ -232,6 +232,12 @@ Now setup both projects and deploy as you need.
 ### Changing `appName`
 
 It's pretty okay to change the `appName`. But before you do so, you need to stop the project with older `appName`
+
+### Custom configuration and settings files
+
+You can keep multiple configuration and settings files in the same directory and pass them to mup using the command parameters `--settings` and `--config`. For example, to use a file `mup-staging.json` and `staging-settings.json` add the parameters like this:
+
+    mup deploy --config=mup-staging.json --settings=staging-settings.json
 
 ### SSL Support
 
