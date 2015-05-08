@@ -29,7 +29,10 @@ if(action == 'init') {
 } else {
   var cwd = path.resolve('.');
   //read config and validate it
-  var config = Config.read();
+  var config = Config.read(configFileName);
+
+  // add settings file to configuration
+  config.settings = settingsFileName;
 
   if(config._passwordExists) {
     //check for sshpass
@@ -48,8 +51,8 @@ if(action == 'init') {
 }
 
 
-function runActions(config, cwd) {
-  var actionsRegistry = new ActionsRegistry(config, cwd);
+function runActions(config, cwd, cliOptions) {
+  var actionsRegistry = new ActionsRegistry(config, cwd, cliOptions);
   if(actionsRegistry[action]) {
     actionsRegistry[action]();
   } else {
