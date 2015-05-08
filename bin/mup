@@ -5,11 +5,24 @@ var cjson = require('cjson');
 var Config = require('../lib/config');
 var ActionsRegistry = require('../lib/actions');
 var helpers = require('../lib/helpers');
+var cliOptions = require('minimist')(process.argv.slice(2));
+var configFile = cliOptions.config || 'mup.json';
+var settingsFile = cliOptions.settings || 'settings.json';
+
 require('colors');
 require('../lib/update_notifier.js');
 
 console.log('\nMeteor Up: Production Quality Meteor Deployments'.bold.blue);
-console.log('------------------------------------------------\n'.bold.blue);
+console.log('------------------------------------------------'.bold.blue);
+
+if (configFile !== 'mup.json' || settingsFile !== 'settings.json'){
+  console.log('Using custom configuration:');
+  console.log('Configuration file : ' + configFile);
+  console.log('Settings file      : ' + settingsFile);
+  console.log('');
+} else {
+  console.log('');
+}
 
 var action = process.argv[2];
 if(action == 'init') {
