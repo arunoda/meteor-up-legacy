@@ -11,7 +11,8 @@
     "underscore": "1.7.0",
     "uuid": "1.4.x",
     "archiver": "0.14.x",
-    "update-notifier": "0.4.x"
+    "update-notifier": "0.4.x",
+    "minimist": "1.1.1"
   },
   "bin": {
     "mupx": "./bin/mup"
