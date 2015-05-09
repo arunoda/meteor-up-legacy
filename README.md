@@ -19,6 +19,7 @@ This version of Meteor Up is powered by [Docker](http://www.docker.com/) and it 
 - [Example File](#example-file)
 - [Setting Up a Server](#setting-up-a-server)
 - [Deploying an App](#deploying-an-app)
+- [Build Options](#build-option)
 - [Additional Setup/Deploy Information](#additional-setupdeploy-information)
     - [Server Setup Details](#server-setup-details)
     - [Deploy Wait Time](#deploy-wait-time)
@@ -135,6 +136,25 @@ This will bundle the Meteor project and deploy it to the server. Bundling proces
 * `mupx start` - start the app
 * `mupx restart` - restart the app
 * `mupx logs [-f --tail=50]` - get logs
+
+### Build Options
+
+When building the meteor app, we can invoke few options. So, you can mention them in `mup.json` like this:
+
+~~~json
+...
+"buildOptions": {
+  "debug": true,
+  "mobileSettings": {
+    "public": {
+      "meteor-up": "rocks"
+    }
+  }
+}
+...
+~~~
+
+We currently support `debug` and `mobileSettings` only.
 
 ### Additional Setup/Deploy Information
 
