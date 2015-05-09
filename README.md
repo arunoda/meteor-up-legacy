@@ -19,7 +19,7 @@ This version of Meteor Up is powered by [Docker](http://www.docker.com/) and it 
 - [Example File](#example-file)
 - [Setting Up a Server](#setting-up-a-server)
 - [Deploying an App](#deploying-an-app)
-- [Build Options](#build-option)
+- [Build Options](#build-options)
 - [Additional Setup/Deploy Information](#additional-setupdeploy-information)
     - [Server Setup Details](#server-setup-details)
     - [Deploy Wait Time](#deploy-wait-time)
