@@ -141,20 +141,23 @@ This will bundle the Meteor project and deploy it to the server. Bundling proces
 
 When building the meteor app, we can invoke few options. So, you can mention them in `mup.json` like this:
 
-~~~json
+~~~js
 ...
 "buildOptions": {
+  // build with the debug mode on
   "debug": true,
+  // mobile setting for cordova apps
   "mobileSettings": {
     "public": {
       "meteor-up": "rocks"
     }
-  }
+  },
+  // executable used to build the meteor project
+  // you can set a local repo path if needed
+  "executable": "meteor"
 }
 ...
 ~~~
-
-We currently support `debug` and `mobileSettings` only.
 
 ### Additional Setup/Deploy Information
 
