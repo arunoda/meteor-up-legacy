@@ -162,6 +162,21 @@ We currently support `debug` and `mobileSettings` only.
 
 Meteor Up checks if the deployment is successful or not just after the deployment. By default, it will wait 15 seconds before the check. You can configure the wait time with the `deployCheckWaitTime` option in the `mup.json`
 
+#### SSH keys with paraphrase (or ssh-agent support)
+
+> This only tested with Mac/Linux
+
+It's common to use paraphrase enabled SSH keys to add an extra layer of protection to your SSH keys. You can use those keys with `mup` too. In order to do that, you need to use a `ssh-agent`.
+
+Here's the process:
+
+* First remove your `pem` field from the `mup.json`. So, your `mup.json` only has the username and host only.
+* Then start a ssh agent with eval `eval $(ssh-agent)`
+* Then add your ssh key with `ssh-add <path-to-key>`
+* Then you'll asked to enter the paraphrase to the key
+* After that simply invoke `mup` commands and they'll just work
+* Once you've deployed your app kill the ssh agent with `ssh-agent -k`
+
 #### Ssh based authentication with `sudo`
 
 **If your username is `root` or using AWS EC2, you don't need to follow these steps**
