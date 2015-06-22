@@ -113,7 +113,7 @@ This will create two files in your Meteor Up project directory:
 
   // show a progress bar while uploading.
   // Make it false when you deploy using a CI box.
-  "uploadProgressBar": true
+  "enableUploadProgressBar": true
 }
 ```
 
