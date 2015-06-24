@@ -174,7 +174,7 @@ It's common to use paraphrase enabled SSH keys to add an extra layer of protecti
 Here's the process:
 
 * First remove your `pem` field from the `mup.json`. So, your `mup.json` only has the username and host only.
-* Then start a ssh agent with eval `eval $(ssh-agent)`
+* Then start a ssh agent with `eval $(ssh-agent)`
 * Then add your ssh key with `ssh-add <path-to-key>`
 * Then you'll asked to enter the paraphrase to the key
 * After that simply invoke `mup` commands and they'll just work
