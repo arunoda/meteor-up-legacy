@@ -27,7 +27,7 @@ gyp_rebuild_inside_node_modules () {
 
     check_for_binary_modules
 
-    if [ $isBinaryModule == "yes" ]; then
+    if [ $isBinaryModule = "yes" ]; then
       echo " > $npmModule: npm install due to binary npm modules"
       rm -rf node_modules
       if [ -f binding.gyp ]; then
