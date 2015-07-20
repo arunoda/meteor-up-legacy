@@ -82,10 +82,10 @@ This will create two files in your Meteor Up project directory:
     {
       "host": "hostname",
       "username": "root",
-      "password": "password"
+      "password": "password",
       // or pem file (ssh based authentication)
       // WARNING: Keys protected by a passphrase are not supported
-      //"pem": "~/.ssh/id_rsa"
+      //"pem": "~/.ssh/id_rsa",
       // Also, for non-standard ssh port use this
       //"sshOptions": { "port" : 49154 },
       // server specific environment variables
@@ -258,7 +258,7 @@ It is possible to provide server specific environment variables. Add the `env` o
     {
       "host": "hostname",
       "username": "root",
-      "password": "password"
+      "password": "password",
       "env": {
         "SOME_ENV": "the-value"
       }
