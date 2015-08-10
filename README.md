@@ -1,6 +1,6 @@
 # Meteor Up X (Development Version)
 
-> This is the latest development version of Meteor Up and known as `mupx`. Once `mupx` became stable we'll merge into master and release as `mup`.
+> This is the latest development version of Meteor Up and known as `mupx`. Once `mupx` becomes stable we'll merge into master and release as `mup`.
 
 #### Production Quality Meteor Deployments
 
