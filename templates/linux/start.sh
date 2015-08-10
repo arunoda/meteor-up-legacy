@@ -7,14 +7,16 @@ ENV_FILE=$APP_PATH/config/env.list
 PORT=<%= port %>
 USE_LOCAL_MONGO=<%= useLocalMongo? "1" : "0" %>
 
-# remove previous version of the app, if exists
+# Remove previous version of the app, if exists
 docker rm -f $APPNAME
 
-# remove frontend container if exists
+# Remove frontend container if exists
 docker rm -f $APPNAME-frontend
 
-set -e
+# We don't need to fail the deployment because of a docker hub downtime
+set +e
 docker pull meteorhacks/meteord:base
+set -e
 
 if [ "$USE_LOCAL_MONGO" == "1" ]; then
   docker run \
@@ -41,7 +43,10 @@ else
 fi
 
 <% if(typeof sslConfig === "object")  { %>
+  # We don't need to fail the deployment because of a docker hub downtime
+  set +e
   docker pull meteorhacks/mup-frontend-server:latest
+  set -e
   docker run \
     -d \
     --restart=always \
