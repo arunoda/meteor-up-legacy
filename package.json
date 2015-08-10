@@ -1,6 +1,6 @@
 {
   "name": "mupx",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Production Quality Meteor Deployments",
   "dependencies": {
     "async": "^0.9.0",
