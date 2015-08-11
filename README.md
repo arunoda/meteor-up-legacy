@@ -16,6 +16,7 @@ You can use install and use Meteor Up from Linux, Mac and Windows.
 
 - [Features](#features)
 - [Server Configuration](#server-configuration)
+    - [SSH-key-based authentication (with passphrase)](#ssh-keys-with-passphrase-or-ssh-agent-support)
 - [Installation](#installation)
 - [Creating a Meteor Up Project](#creating-a-meteor-up-project)
 - [Example File](#example-file)
@@ -84,7 +85,6 @@ This will create two files in your Meteor Up project directory:
       "username": "root",
       "password": "password",
       // or pem file (ssh based authentication)
-      // WARNING: Keys protected by a passphrase are not supported
       //"pem": "~/.ssh/id_rsa",
       // Also, for non-standard ssh port use this
       //"sshOptions": { "port" : 49154 },
@@ -105,7 +105,7 @@ This will create two files in your Meteor Up project directory:
   // Install PhantomJS on the server
   "setupPhantom": true,
 
-  // Show a progress bar during the upload of the bundle to the server. 
+  // Show a progress bar during the upload of the bundle to the server.
   // Might cause an error in some rare cases if set to true, for instance in Shippable CI
   "enableUploadProgressBar": true,
 
@@ -329,7 +329,7 @@ You should try and keep `mup` up to date in order to keep up with the latest Met
 
 #### Check Access
 
-Your issue might not always be related to Meteor Up. So make sure you can connect to your instance first, and that your credentials are working properly. 
+Your issue might not always be related to Meteor Up. So make sure you can connect to your instance first, and that your credentials are working properly.
 
 #### Check Logs
 If you suddenly can't deploy your app anymore, first use the `mup logs -f` command to check the logs for error messages.
