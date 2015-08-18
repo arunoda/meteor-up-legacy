@@ -293,7 +293,7 @@ Meteor Up has the built in SSL support. It uses [stud](https://github.com/bumpte
 * When asked to select your SSL server type, select it as nginx.
 * Then you'll get a set of files (your domain certificate and CA files).
 
-Now you need combine SSL certificate(s) with the private key and save it in the mup config directory as `ssl.pem`. Check this [guide](http://alexnj.com/blog/configuring-a-positivessl-certificate-with-stud.html) to do that.
+Now you need combine SSL certificate(s) with the private key and save it in the mup config directory as `ssl.pem`. Check this [guide](http://alexnj.com/blog/configuring-a-positivessl-certificate-with-stud) to do that.
 
 Then add following configuration to your `mup.json` file.
 
