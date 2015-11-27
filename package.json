@@ -1,24 +1,29 @@
 {
-  "name": "mup",
-  "version": "0.11.3",
+  "name": "meteor-up",
+  "version": "1.0.0",
   "description": "Production Quality Meteor Deployments",
-  "dependencies": {
-    "async": "^0.9.0",
-    "cjson": "0.3.x",
-    "colors": "0.6.x",
-    "nodemiral": "^1.1.1",
-    "rimraf": "2.x.x",
-    "underscore": "1.7.0",
-    "uuid": "1.4.x",
-    "archiver": "0.14.x"
+  "main": "index.js",
+  "babel": {
+    "presets": ["es2015"]
   },
-  "bin": {
-    "mup": "./bin/mup"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Arunoda Susiripala <arunoda.susiripala@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/arunoda/meteor-up.git"
+    "url": "git+https://github.com/kadirahq/meteor-up.git"
   },
-  "license": "MIT"
+  "keywords": [
+    "meteor"
+  ],
+  "author": "Kadira Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kadirahq/meteor-up/issues"
+  },
+  "homepage": "https://github.com/kadirahq/meteor-up#readme",
+  "dependencies": {
+    "babel-core": "6.2.1",
+    "babel-preset-es2015": "6.1.18"
+  }
 }
