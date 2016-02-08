@@ -1,8 +1,8 @@
 # Meteor Up
 
-> We are working on the next version of Meteor Up with more stability and fast deployments.
-> For that we use Docker behind the scene.
-> Check it out: https://github.com/arunoda/meteor-up/tree/mupx#
+> This version is no longer maintaining.<br/>
+> [Mupx](https://github.com/arunoda/meteor-up/tree/mupx) is the stable version. <br/>
+> New development is moved to here: https://github.com/kadirahq/meteor-up.
 
 #### Production Quality Meteor Deployments
 
