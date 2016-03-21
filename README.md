@@ -1,6 +1,6 @@
 # Meteor Up X (Stable Version)
 
-> The latest development of mup is https://github.com/kadirahq/meteor-up.
+> The latest development version of mup is https://github.com/kadirahq/meteor-up.
 
 #### Production Quality Meteor Deployments
 
